@@ -1,0 +1,46 @@
+{
+  "accion": {
+    "ejecutada": false,
+    "justificacion": "El pool PortalPagosPool está detenido o deshabilitado según el evento WAS 5002 y el estado del pool es distinto de Running, por lo que se recomienda reiniciar el application pool para restaurar el servicio.",
+    "nombre": "Reiniciar el application pool PortalPagosPool (runbook Restaurar-PoolIIS, con salvaguardas)",
+    "requiere_aprobacion_humana": true,
+    "runbook": "RB-01"
+  },
+  "alerta": {
+    "disparo_utc": "2026-10-05T01:50:04.0534949Z",
+    "id": "a8f0d514-2912-72e9-3cd8-bff5f4cc0004",
+    "objetivo": "web-pagos-01",
+    "regla": "PortalPagos-Sitio-NoDisponible",
+    "severidad": "Sev1"
+  },
+  "confianza": {
+    "nivel": "baja",
+    "razon": "Validación con avisos: hipótesis 1: 'An unhandled exception occurred and the process was terminated. Exception: Syste' no aparece en E13"
+  },
+  "duracion_ms": 6666,
+  "evidencias_en_contexto": 39,
+  "hipotesis": [
+    {
+      "descripcion": "El application pool PortalPagosPool se detiene automáticamente debido a excepciones de memoria no manejadas que causan el crash del proceso w3wp.exe.",
+      "evidencia": [
+        "E13",
+        "E14",
+        "E16",
+        "E17"
+      ],
+      "probabilidad": "alta"
+    }
+  ],
+  "impacto": {
+    "descripcion": "El portal de pagos no responde, afectando a los usuarios que intentan acceder al sitio, con múltiples fallas 503 y el pool detenido en varios momentos.",
+    "nivel": "alto"
+  },
+  "modelo": "gpt-4.1-mini-2025-04-14",
+  "origen": "modelo",
+  "problemas": [
+    "cita_no_literal"
+  ],
+  "resumen": "El portal de pagos dejó de responder debido a que el application pool PortalPagosPool fue detenido automáticamente tras múltiples fallas por excepción de memoria.",
+  "tipo": "triage-ia",
+  "valido": true
+}

@@ -1,0 +1,1 @@
+{"host":"WEB-PAGOS-01","zona":"SA Pacific Standard Time","ps":"5.1.20348.5622","pool":"Started","privateMemoryKB":1000000,"health":200,"tareas":["CargaSintetica","MantenimientoPortalPagos","SondaPortalPagos"],"pasos":["11:46:13 payload desplegado","11:46:20 tareas sonda y carga registradas","11:46:21 mantenimiento Reto 2 instalado"]}

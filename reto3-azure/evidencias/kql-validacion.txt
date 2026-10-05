@@ -1,0 +1,34 @@
+
+Origen                                                                                    Errores Detalle
+------                                                                                    ------- -------
+consultas.kql#1                                                                                 0 
+consultas.kql#2                                                                                 0 
+consultas.kql#3                                                                                 0 
+consultas.kql#4                                                                                 0 
+consultas.kql#5                                                                                 0 
+consultas.kql#6                                                                                 0 
+consultas.kql#7                                                                                 0 
+consultas.kql#8                                                                                 0 
+consultas.kql#9                                                                                 0 
+consultas.kql#10                                                                                0 
+alerta:PortalPagos-Sitio-NoDisponible                                                           0 
+alerta:PortalPagos-5xx-Alto                                                                     0 
+alerta:PortalPagos-Memoria-Pool                                                                 0 
+alerta:PortalPagos-Disco-C-Bajo                                                                 0 
+alerta:PortalPagos-Remediacion-Escalada                                                         0 
+alerta:PortalPagos-VM-SinSenal                                                                  0 
+workbook:Indicadores del período                                                                0 
+workbook:Disponibilidad por hora: real vs. lo que veía el NOC                                   0 
+workbook:Incidentes: cuánto duraron, cuánto tardamos en detectarlos y cómo se resolvieron       0 
+workbook:Sonda sintética (por minuto)                                                           0 
+workbook:% de errores 5xx de usuarios (5 min) · alerta > 5 %                                    0 
+workbook:Latencia transaccional p50 / p95 (ms)                                                  0 
+workbook:Memoria privada de w3wp (MB) · alerta > 800 MB sostenido · recicla a ~976 MB           0 
+workbook:Espacio libre en C: (%) · alerta < 15 %                                                0 
+workbook:Eventos del pool y del proceso (WAS, .NET, ASP.NET)                                    0 
+workbook:Auto-remediación: decisiones y acciones                                                0 
+workbook:Triage con IA (Reto 4): sugerencias para la guardia · ninguna se ejecuta sola          0 
+workbook:Mantenimiento diario (Reto 2): código de salida por ejecución                          0 
+
+
+Consultas: 28 · con errores: 0

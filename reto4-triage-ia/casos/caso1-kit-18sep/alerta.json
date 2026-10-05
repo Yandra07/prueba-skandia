@@ -1,0 +1,35 @@
+{
+  "schemaId": "azureMonitorCommonAlertSchema",
+  "data": {
+    "essentials": {
+      "alertId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.AlertsManagement/alerts/7f1c2b3a-0000-0000-0000-000000000001",
+      "alertRule": "PortalPagos-5xx-alto",
+      "severity": "Sev1",
+      "signalType": "Log",
+      "monitorCondition": "Fired",
+      "monitoringService": "Log Alerts V2",
+      "alertTargetIDs": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-portal/providers/microsoft.compute/virtualmachines/web-pagos-01"
+      ],
+      "firedDateTime": "2026-09-18T19:00:00.000Z",
+      "description": "Tasa de 5xx > 5% en 5 minutos",
+      "essentialsVersion": "1.0",
+      "alertContextVersion": "1.0"
+    },
+    "alertContext": {
+      "conditionType": "LogQueryCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "searchQuery": "W3CIISLog | where csUriStem !~ '/health' | summarize total=count(), err=countif(scStatus >= 500) by bin(TimeGenerated,5m) | extend pct=100.0*err/total",
+            "metricMeasureColumn": "pct",
+            "operator": "GreaterThan",
+            "threshold": "5",
+            "metricValue": 23.4
+          }
+        ]
+      }
+    }
+  }
+}

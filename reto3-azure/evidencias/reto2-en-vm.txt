@@ -1,0 +1,30 @@
+3SVC2\u_ex15.log".
+What if: Performing the operation "Borrar (antigüedad > 14 días)" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\whatif\inetpub\logs\LogFiles\W3SVC2\u_ex30.log".
+What if: Performing the operation "Borrar (antigüedad > 7 días)" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\whatif\portal\app\logs\portal-08.log".
+What if: Performing the operation "Borrar (antigüedad > 7 días)" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\whatif\portal\app\logs\portal-20.log".
+What if: Performing the operation "Borrar volcado" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\whatif\crash\CrashDumps\w3wp.exe.1023.dmp".
+What if: Performing the operation "Borrar volcado" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\whatif\crash\CrashDumps\w3wp.exe.1024.dmp".
+What if: Performing the operation "Borrar volcado" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\whatif\crash\CrashDumps\w3wp.exe.1025.dmp".
+What if: Performing the operation "Borrar volcado" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\whatif\crash\CrashDumps\w3wp.exe.1026.dmp".
+What if: Performing the operation "Copiar u_ex00.log a auditoría" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\auditoria\WEB-PAGOS-01\W3SVC2\u_ex00.log".
+What if: Performing the operation "Copiar u_ex03.log a auditoría" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\auditoria\WEB-PAGOS-01\W3SVC2\u_ex03.log".
+What if: Performing the operation "Copiar u_ex13.log a auditoría" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\auditoria\WEB-PAGOS-01\W3SVC2\u_ex13.log".
+What if: Performing the operation "Copiar u_ex15.log a auditoría" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\auditoria\WEB-PAGOS-01\W3SVC2\u_ex15.log".
+What if: Performing the operation "Copiar u_ex30.log a auditoría" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\auditoria\WEB-PAGOS-01\W3SVC2\u_ex30.log".
+What if: Performing the operation "Borrar (antigüedad > 14 días)" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\inetpub\logs\LogFiles\W3SVC2\u_ex15.log".
+What if: Performing the operation "Borrar (antigüedad > 14 días)" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\inetpub\logs\LogFiles\W3SVC2\u_ex30.log".
+What if: Performing the operation "Borrar (antigüedad > 7 días)" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\portal\app\logs\portal-08.log".
+What if: Performing the operation "Borrar (antigüedad > 7 días)" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\portal\app\logs\portal-20.log".
+What if: Performing the operation "Borrar volcado" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\crash\CrashDumps\w3wp.exe.1023.dmp".
+What if: Performing the operation "Borrar volcado" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\crash\CrashDumps\w3wp.exe.1024.dmp".
+What if: Performing the operation "Borrar volcado" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\crash\CrashDumps\w3wp.exe.1025.dmp".
+What if: Performing the operation "Borrar volcado" on target "C:\andina\tmp\2b1740d6e3c143578ed9af0457f6a51c\corrupto\crash\CrashDumps\w3wp.exe.1026.dmp".
+What if: Performing the operation "Iniciar servicio" on target "X".
+PESTER A· PowerShell 5.1.20348.5622 A· Microsoft Windows Server 2022 Datacenter A· Pester 5.7.1: 27 ok, 0 fallidas
+MANTENIMIENTO (sin Servicio Notificaciones: no existe en el laboratorio) A· -WhatIf=0 A· real=0 A· parametro invalido=1
+  2026-10-01T21:16:20.157-05:00 INFO pool: Pool 'PortalPagosPool' Started
+  2026-10-01T21:16:20.157-05:00 INFO disco-final: C:\: 56.19 % libre (16943 MB)
+  2026-10-01T21:16:20.188-05:00 INFO fin: Fin de mantenimiento: cA3digo 0
+TAREA A· \Andina\MantenimientoPortalPagos A· estado=Ready A· usuario=SYSTEM A· trigger=2026-10-01T02:15:00-05:00
+POOL A· privateMemory=1000000 KB A· schedule=02:00:00 A· time=00:00:00
+EVENTOS AndinaMantenimiento: 1000/Information, 1003/Error, 1000/Information

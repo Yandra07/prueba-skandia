@@ -1,0 +1,13 @@
+hora_colombia,hito,que_vio_el_usuario,evidencia
+2026-09-18 02:00:01,Mantenimiento nocturno: iisreset (el pool arranca con ~300 MB),Normal,eventos_WEB-PAGOS-01.csv:271
+2026-09-18 11:10:00,"Memoria del pool supera 1.000 MB (3,3x lo normal antes del despliegue)","Normal, aún sin síntomas",perfmon_WEB-PAGOS-01.csv (Process(w3wp)\Private Bytes)
+2026-09-18 11:45:00,Inicio de la degradación: p95 transaccional > 2x la línea base (450 ms),Lentitud al consultar y pagar,u_ex260918.log (p95 por ventana 15 min)
+2026-09-18 13:23:08,Primer error 500 a un usuario,'Ha ocurrido un error inesperado',u_ex260918.log:24018
+2026-09-18 13:24:19,Primera OutOfMemoryException en SesionPagoCache.Agregar (/api/pagos/confirmar),Pagos fallan de forma intermitente,eventos_WEB-PAGOS-01.csv:304
+2026-09-18 13:34:00,Primer ticket: error al confirmar pago (T-10252),Usuarios reportan,tickets_mesa_servicio.csv
+2026-09-18 14:22:12,Primer cierre del proceso w3wp por memoria (crash + dump),Errores y sesiones perdidas,eventos_WEB-PAGOS-01.csv:347
+2026-09-18 14:38:00,"Primer 503 'Service Unavailable' (HTTP.sys, AppOffline)",'Service Unavailable' en todo el portal,httperr1.log:5
+2026-09-18 14:38:05,IIS deshabilita el pool tras 5 caídas seguidas (Rapid-Fail Protection),Caída total,eventos_WEB-PAGOS-01.csv:366
+2026-09-18 14:42:00,Ticket crítico T-10255: portal caído,Usuarios reportan,tickets_mesa_servicio.csv
+2026-09-18 15:04:00,Primera respuesta exitosa tras el reinicio manual del pool (15:04 según T-10255),Portal vuelve a responder,u_ex260918.log:27229
+2026-09-18 15:30:00,Latencia y errores vuelven a valores normales,Servicio normal,u_ex260918.log

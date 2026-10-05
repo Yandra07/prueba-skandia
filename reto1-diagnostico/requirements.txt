@@ -1,0 +1,6 @@
+# Versiones con las que se ejecutó y verificó el análisis (Python 3.9 y 3.10+, 04-oct-2026).
+# Con pip antiguo (el de Python 3.9 en macOS) ejecutar antes: pip install --upgrade pip
+pandas==2.3.3
+numpy==2.0.2
+matplotlib==3.9.4
+pytest==8.4.2

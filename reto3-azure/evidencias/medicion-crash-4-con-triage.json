@@ -1,0 +1,13 @@
+{
+    "Alerta_a_remediacion_seg": "76",
+    "Escenario": "crash",
+    "MTTD_min": "1",
+    "MTTR_min": "2.3",
+    "T0": "2026-10-02T16:48:26.905246Z",
+    "TableName": "PrimaryResult",
+    "detectado": "2026-10-02T16:50:02.3675387Z",
+    "primer_fallo": "2026-10-02T16:49:00.9848108Z",
+    "recuperado": "2026-10-02T16:51:21.1701165Z",
+    "remediado": "2026-10-02T16:51:18.6074218Z",
+    "runbook_en_vm": "2026-10-02T16:51:13.4816262Z"
+}

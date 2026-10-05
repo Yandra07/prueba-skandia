@@ -1,0 +1,190 @@
+{
+  "incidente": {
+    "linea_base_p95_ms": 450.0,
+    "inicio_degradacion": "2026-09-18 11:45:00",
+    "primer_error": "2026-09-18 13:23:08",
+    "minutos_degradacion_a_primer_error": 98.133,
+    "caida_total_inicio": "2026-09-18 14:38:00",
+    "caida_total_fin": "2026-09-18 15:03:59",
+    "caida_total_min": 26.0,
+    "impacto_desde_primer_error_min": 100.867,
+    "crashes_w3wp": 5,
+    "oom_eventos_aspnet": 40,
+    "errores_500_usuario": 463,
+    "errores_500_fondo_semana_movimientos": 129,
+    "errores_500_confirmar_iniciar": 275,
+    "rechazos_503_usuario": 1489,
+    "rechazos_503_pagos": 229,
+    "health_503_en_httperr": 52,
+    "health_status_durante_errores_500": {
+      "200": 149
+    },
+    "minutos_primer_error_a_primer_ticket": 10.867,
+    "win32_64_cliente_abandona": 160,
+    "solicitudes_fallidas_incidente": 1952,
+    "intentos_pago_fallidos_incidente": 504,
+    "pagos_intentos_antes_caida_total": 674,
+    "pagos_fallidos_antes_caida_total": 275,
+    "pct_pagos_fallidos_antes_caida_total": 40.801,
+    "pagos_intentos_incidente": 903,
+    "pagos_fallidos_incidente": 504,
+    "pct_pagos_fallidos_incidente": 55.814,
+    "errores_500_movimientos_semana_total": 192,
+    "ips_distintas_con_500": 463,
+    "pagos_confirmados_ok_durante_incidente": 217,
+    "pagos_confirmar_intentos_durante_incidente": 358,
+    "pagos_confirmados_ok_2h_previas": 588,
+    "pagos_confirmar_intentos_2h_previas": 588,
+    "pagos_confirmados_2h_tras_recuperacion": 694,
+    "pagos_confirmados_misma_franja_promedio_lun_jue": 297.0
+  },
+  "disponibilidad": {
+    "disp_solicitudes_pct": 98.567,
+    "disp_minutos_errores_pct": 98.661,
+    "disp_minutos_errores_y_latencia_pct": 98.621,
+    "minutos_malos_semana": 139,
+    "noc_health_con_httperr_pct": 99.742,
+    "hueco_nocturno_iisreset_s_promedio": 50.143,
+    "hueco_nocturno_iisreset_s": [
+      46.0,
+      60.0,
+      50.0,
+      45.0,
+      42.0,
+      48.0,
+      60.0
+    ]
+  },
+  "senales": {
+    "w3wp_max_previo_mb": 320.286,
+    "primer_cruce_2x_memoria": "2026-09-16 12:10:00",
+    "horas_de_anticipacion": 49.219,
+    "primer_p95_15min_sobre_2x_base": "2026-09-17 19:30:00",
+    "factor_p95_noche_vs_base_por_dia": {
+      "2026-09-14": 1.0,
+      "2026-09-15": 1.02,
+      "2026-09-16": 1.3,
+      "2026-09-17": 2.29,
+      "2026-09-18": 1.09,
+      "2026-09-19": 1.03,
+      "2026-09-20": 0.95
+    },
+    "w3wp_max_antes_reset_18sep_mb": 1215.723,
+    "ram_libre_min_mb_antes_primer_crash": 4723.0,
+    "dcom_10016_semana": 261,
+    "notificaciones_arranques_semana": 32,
+    "notificaciones_arranques_a_las_02h": 0,
+    "c_libre_aumento_0155_0210_mb": {
+      "2026-09-14": 26.0,
+      "2026-09-15": 1620.0,
+      "2026-09-16": 0.0,
+      "2026-09-17": 0.0,
+      "2026-09-18": 0.0,
+      "2026-09-19": 0.0,
+      "2026-09-20": 0.0
+    }
+  },
+  "memoria": {
+    "regresiones": {
+      "antes_v2.3.1": {
+        "conf": {
+          "mb_por_unidad": -0.001,
+          "r2": 0.018
+        },
+        "ini": {
+          "mb_por_unidad": -0.001,
+          "r2": 0.017
+        },
+        "req": {
+          "mb_por_unidad": -0.0,
+          "r2": 0.018
+        }
+      },
+      "despues_v2.3.1": {
+        "conf": {
+          "mb_por_unidad": 0.496,
+          "r2": 0.999
+        },
+        "ini": {
+          "mb_por_unidad": 0.439,
+          "r2": 0.99
+        },
+        "req": {
+          "mb_por_unidad": 0.039,
+          "r2": 0.956
+        }
+      }
+    },
+    "mb_por_pago_confirmado": 0.496,
+    "umbral_oom_observado_mb": 1478.484,
+    "memoria_tras_reset_mb": 304.073,
+    "capacidad_pagos_entre_reinicios": 2367.395,
+    "pagos_confirmados_18sep_hasta_primer_error": 2126,
+    "pagos_confirmados_por_dia_lun_jue": {
+      "2026-09-14": 1601,
+      "2026-09-15": 1539,
+      "2026-09-16": 1597,
+      "2026-09-17": 1805
+    },
+    "pagos_confirmados_18sep": 3794,
+    "factor_pagos_18sep_vs_promedio_lun_jue": 2.32,
+    "factor_pagos_18sep_vs_max_lun_jue": 2.102,
+    "uso_capacidad_dia_normal_pct": 69.084,
+    "dias_hasta_oom_sin_reinicio_nocturno": 1.448,
+    "nota": "Dentro de cada vida del proceso w3wp (entre reinicios), memoria ~ base + b * pagos acumulados. Antes de v2.3.1 la pendiente es ~0 (memoria plana); después, cada pago deja memoria retenida."
+  },
+  "disco": {
+    "antes": {
+      "mb_por_1000_solicitudes": 104.7,
+      "mb_por_hora_base": -77.724,
+      "r2": 0.11,
+      "consumo_mb_dia_promedio": 554.087
+    },
+    "despues": {
+      "mb_por_1000_solicitudes": 300.978,
+      "mb_por_hora_base": -0.154,
+      "r2": 0.999,
+      "consumo_mb_dia_promedio": 5820.718
+    },
+    "salto_dumps_18sep_mb": 8744.0,
+    "escenarios_lleno": {
+      "bajo": "2026-09-22 15:00:00",
+      "medio": "2026-09-22 14:00:00",
+      "alto": "2026-09-22 12:00:00"
+    },
+    "disco_total_mb": 122265.519,
+    "libre_al_cierre_kit_mb": 11172.0,
+    "libre_al_cierre_kit_pct": 9.137,
+    "agota_10pct": "ya por debajo al cierre del kit",
+    "agota_5pct": "2026-09-21 15:00:00",
+    "agota_0": "2026-09-22 14:00:00",
+    "consumo_dia_habil_mb": 6992.249,
+    "consumo_dia_pico_mb": 10363.205,
+    "evento_srv_2013": "2026-09-18 16:37:17",
+    "metodo": "Regresión lineal consumo_horario_MB ~ solicitudes_hora (después del despliegue, sin el salto por dumps), proyectada con el perfil horario promedio de días hábiles (14-17 sep) y de fin de semana (19-20 sep)."
+  },
+  "calidad": {
+    "descartados": [
+      {
+        "archivo": "u_ex260916 - copia.log",
+        "motivo": "duplicado exacto de u_ex260916.log",
+        "sha256": "e17d0efd4a25"
+      }
+    ],
+    "cambio_formato": {
+      "archivo": "u_ex260917.log",
+      "linea_fields": 2351,
+      "primera_linea_datos": 2352,
+      "ts_utc": "2026-09-17 03:12:05",
+      "ts_local": "2026-09-16 22:12:05",
+      "detalle": "Se agregan cs-host y X-Forwarded-For; desde aquí c-ip de los usuarios es 10.20.4.4 (proxy).",
+      "pct_usuarios_via_proxy_despues": 100.0,
+      "evento_de_cambio_registrado": false
+    }
+  },
+  "volumen": {
+    "solicitudes_usuario_semana": 144083,
+    "sondeos_health": 20101,
+    "escaneos_404": 1772
+  }
+}

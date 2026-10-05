@@ -1,0 +1,174 @@
+{
+  "version": "1.0",
+  "generado_utc": "2026-10-02T16:56:16Z",
+  "alerta": {
+    "id": "b15a912e-b4c9-e940-d578-4eade9290004",
+    "regla": "PortalPagos-Sitio-NoDisponible",
+    "severidad": "Sev1",
+    "disparo_utc": "2026-10-02T03:07:04.5188885Z",
+    "objetivo": "web-pagos-01"
+  },
+  "origen": "modelo",
+  "modelo": "gpt-4.1-mini-2025-04-14",
+  "triage": {
+    "resumen": "El pool PortalPagosPool sufrió un crash por OutOfMemoryException y fue deshabilitado temporalmente, luego se reinició y está en estado Running. La sonda sintética muestra fallas 503 persistentes, posiblemente por una dependencia externa.",
+    "que_esta_pasando": "A las 21:35 el pool PortalPagosPool estaba en estado Running con memoria privada de 84 MB y disco C: con 56.2% libre (E23, E24, E22). A las 21:40 se detectaron errores de OutOfMemoryException y el pool fue deshabilitado automáticamente (E15, E16, E19, E27). La memoria privada bajó a 49 MB y el estado del pool cambió a 5 (no Running) (E26, E27). Entre 21:43 y 21:45 el pool fue reiniciado y volvió a estado Running (E20, E21, E30). La memoria privada comenzó a crecer nuevamente hasta 71 MB a las 22:05 (E41). La sonda sintética reportó fallas con código 503 en varios intervalos, incluso cuando el pool estaba en Running (E9, E14, E43). El disco C: mantiene más del 55% libre durante todo el periodo (E22, E25, E28, E33, E36, E38, E40). El último heartbeat del agente fue a las 22:06 (E44).",
+    "impacto": {
+      "nivel": "medio",
+      "descripcion": "Clientes experimentan fallas intermitentes con código 503 en el sitio de pagos, afectando la disponibilidad del servicio."
+    },
+    "hipotesis": [
+      {
+        "descripcion": "El pool PortalPagosPool sufrió un crash por OutOfMemoryException que causó su deshabilitación temporal, pero este evento ocurrió antes de la alerta y el pool fue reiniciado.",
+        "probabilidad": "media",
+        "evidencia": [
+          {
+            "id": "E15",
+            "cita": "An unhandled exception occurred and the process was terminated. Application ID: /LM/W3SVC/2/ROOT Process ID: 2344 Exception: System.OutOfMemoryException Message: Crash provocado (Reto 3)"
+          },
+          {
+            "id": "E16",
+            "cita": "The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException"
+          },
+          {
+            "id": "E19",
+            "cita": "Application pool 'PortalPagosPool' is being automatically disabled due to a series of failures in the process(es) serving that application pool."
+          }
+        ]
+      },
+      {
+        "descripcion": "Las fallas 503 persistentes con el pool en estado Running indican un problema en una dependencia externa del servicio.",
+        "probabilidad": "alta",
+        "evidencia": [
+          {
+            "id": "E43",
+            "cita": "La sonda falla con el pool en Running: la falla no está en el pool (posible dependencia)"
+          },
+          {
+            "id": "E9",
+            "cita": "Sonda sintética (5 min): 6 OK, 18 fallas. Ejemplo de falla: {\"status\":503,\"url\":\"http://localhost/health.aspx\"}"
+          },
+          {
+            "id": "E14",
+            "cita": "Sonda sintética (5 min): 3 OK, 6 fallas. Ejemplo de falla: {\"status\":503,\"url\":\"http://localhost/health.aspx\"}"
+          }
+        ]
+      }
+    ],
+    "accion_sugerida": {
+      "runbook": "RB-04",
+      "justificacion": "El pool está en estado Running y no hay eventos WAS 5002 recientes que indiquen caída. La sonda falla con el pool en Running, lo que sugiere problema en dependencia externa.",
+      "evidencia": [
+        "E43",
+        "E9",
+        "E14"
+      ]
+    },
+    "confianza": {
+      "nivel": "media",
+      "razon": "El crash por OutOfMemoryException ocurrió antes de la alerta y el pool fue reiniciado, pero las fallas 503 persisten con el pool en Running, indicando posible dependencia externa."
+    },
+    "datos_faltantes": [
+      "Estado y logs de la dependencia externa que causa fallas 503",
+      "Confirmación del estado actual del pool en el momento de la alerta"
+    ]
+  },
+  "accion": {
+    "runbook": "RB-04",
+    "justificacion": "El pool está en estado Running y no hay eventos WAS 5002 recientes que indiquen caída. La sonda falla con el pool en Running, lo que sugiere problema en dependencia externa.",
+    "evidencia": [
+      "E43",
+      "E9",
+      "E14"
+    ],
+    "nombre": "Verificar dependencia externa (el pool está sano pero el servicio falla)",
+    "requiere_aprobacion_humana": true,
+    "ejecutada": false
+  },
+  "validacion": {
+    "valido": true,
+    "problemas": [],
+    "intentos": [
+      {
+        "vuelta": 1,
+        "resultado": "grave",
+        "problemas": [
+          {
+            "tipo": "cita_no_literal",
+            "detalle": "hipótesis 1: 'An unhandled exception occurred and the process was terminated. Exception: Syste' no aparece en E15"
+          },
+          {
+            "tipo": "accion_desactualizada",
+            "detalle": "la evidencia que justifica RB-03 termina antes de 2026-10-01 21:52:04 (más de 15 min antes de la alerta): puede ser un episodio anterior"
+          }
+        ],
+        "meta": {
+          "modelo": "gpt-4.1-mini-2025-04-14",
+          "tokens": {
+            "completion_tokens": 808,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "latency_checkpoint": {
+              "engine_tbt_ms": 11,
+              "engine_ttft_ms": 112,
+              "engine_ttlt_ms": 8627,
+              "pre_inference_ms": 164,
+              "service_tbt_ms": 10,
+              "service_ttft_ms": 450,
+              "service_ttlt_ms": 8928,
+              "user_visible_ttft_ms": 286
+            },
+            "prompt_tokens": 5761,
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 0
+            },
+            "total_tokens": 6569
+          },
+          "latencia_ms": 10354,
+          "intentos": 1
+        }
+      },
+      {
+        "vuelta": 2,
+        "resultado": "ok",
+        "problemas": [],
+        "meta": {
+          "modelo": "gpt-4.1-mini-2025-04-14",
+          "tokens": {
+            "completion_tokens": 837,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "latency_checkpoint": {
+              "engine_tbt_ms": 9,
+              "engine_ttft_ms": 60,
+              "engine_ttlt_ms": 7619,
+              "pre_inference_ms": 192,
+              "service_tbt_ms": 9,
+              "service_ttft_ms": 428,
+              "service_ttlt_ms": 7983,
+              "user_visible_ttft_ms": 236
+            },
+            "prompt_tokens": 6696,
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 6528
+            },
+            "total_tokens": 7533
+          },
+          "latencia_ms": 9259,
+          "intentos": 1
+        }
+      }
+    ]
+  },
+  "duracion_ms": 19616
+}

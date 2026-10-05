@@ -1,0 +1,1716 @@
+{
+ "Q1_disponibilidad_por_hora": [
+  {
+   "Hora": "2026-10-02T02:00:00Z",
+   "TableName": "PrimaryResult",
+   "disp_noc_w3c_pct": "100",
+   "disp_sonda_pct": "89.89",
+   "disp_usuarios_pct": "100"
+  },
+  {
+   "Hora": "2026-10-02T03:00:00Z",
+   "TableName": "PrimaryResult",
+   "disp_noc_w3c_pct": "84.4",
+   "disp_sonda_pct": "61.33",
+   "disp_usuarios_pct": "100"
+  }
+ ],
+ "Q2_disponibilidad_minutos": [
+  {
+   "TableName": "PrimaryResult",
+   "disponibilidad_pct": "80.392",
+   "minutos": "102",
+   "minutos_malos": "20"
+  }
+ ],
+ "Q3a_5xx_5min": [
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:30:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "60"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:35:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "274"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "103"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:45:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "251"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:50:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "264"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:55:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "268"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:00:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "262"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:05:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "263"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:10:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "263"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:15:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "265"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:20:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "131"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:25:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "162"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:30:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "54"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:35:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "1768"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:40:00Z",
+   "errores_5xx": "0",
+   "pct_5xx": "0",
+   "total": "892"
+  }
+ ],
+ "Q3b_5xx_detalle": [
+  {
+   "TableName": "PrimaryResult",
+   "csUriStem": "/health.aspx",
+   "n": "17",
+   "scStatus": "503",
+   "scSubStatus": "0",
+   "scWin32Status": "0"
+  }
+ ],
+ "Q4_latencia": [
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:30:00Z",
+   "percentile_TimeTaken_50": "102",
+   "percentile_TimeTaken_95": "202",
+   "percentile_TimeTaken_99": "218",
+   "solicitudes": "60"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:35:00Z",
+   "percentile_TimeTaken_50": "93",
+   "percentile_TimeTaken_95": "202",
+   "percentile_TimeTaken_99": "233",
+   "solicitudes": "274"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:00Z",
+   "percentile_TimeTaken_50": "108",
+   "percentile_TimeTaken_95": "468",
+   "percentile_TimeTaken_99": "1029",
+   "solicitudes": "103"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:45:00Z",
+   "percentile_TimeTaken_50": "108",
+   "percentile_TimeTaken_95": "248",
+   "percentile_TimeTaken_99": "264",
+   "solicitudes": "251"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:50:00Z",
+   "percentile_TimeTaken_50": "93",
+   "percentile_TimeTaken_95": "186",
+   "percentile_TimeTaken_99": "236",
+   "solicitudes": "264"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:55:00Z",
+   "percentile_TimeTaken_50": "93",
+   "percentile_TimeTaken_95": "205",
+   "percentile_TimeTaken_99": "249",
+   "solicitudes": "268"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:00:00Z",
+   "percentile_TimeTaken_50": "93",
+   "percentile_TimeTaken_95": "202",
+   "percentile_TimeTaken_99": "249",
+   "solicitudes": "262"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:05:00Z",
+   "percentile_TimeTaken_50": "108",
+   "percentile_TimeTaken_95": "218",
+   "percentile_TimeTaken_99": "249",
+   "solicitudes": "263"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:10:00Z",
+   "percentile_TimeTaken_50": "93",
+   "percentile_TimeTaken_95": "218",
+   "percentile_TimeTaken_99": "249",
+   "solicitudes": "263"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:15:00Z",
+   "percentile_TimeTaken_50": "108",
+   "percentile_TimeTaken_95": "233",
+   "percentile_TimeTaken_99": "529",
+   "solicitudes": "265"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:20:00Z",
+   "percentile_TimeTaken_50": "108",
+   "percentile_TimeTaken_95": "383",
+   "percentile_TimeTaken_99": "478",
+   "solicitudes": "131"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:25:00Z",
+   "percentile_TimeTaken_50": "107",
+   "percentile_TimeTaken_95": "249",
+   "percentile_TimeTaken_99": "532",
+   "solicitudes": "162"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:30:00Z",
+   "percentile_TimeTaken_50": "77",
+   "percentile_TimeTaken_95": "218",
+   "percentile_TimeTaken_99": "564",
+   "solicitudes": "54"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:35:00Z",
+   "percentile_TimeTaken_50": "148",
+   "percentile_TimeTaken_95": "245",
+   "percentile_TimeTaken_99": "257",
+   "solicitudes": "1768"
+  },
+  {
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:40:00Z",
+   "percentile_TimeTaken_50": "148",
+   "percentile_TimeTaken_95": "243",
+   "percentile_TimeTaken_99": "258",
+   "solicitudes": "892"
+  }
+ ],
+ "Q5a_eventos_pool": [
+  {
+   "Descripcion": "A worker process serving application pool 'PortalPagosPool' has requested a recycle because it reached its private bytes memory limit.",
+   "EventID": "5117",
+   "EventLevelName": "Information",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:40:50.8850042Z"
+  },
+  {
+   "Descripcion": "Application pool 'PortalPagosPool' is being automatically disabled due to a series of failures in the process(es) serving that application pool.",
+   "EventID": "5002",
+   "EventLevelName": "Error",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:28.9305177Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '452'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:28.9305177Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:26.8463839Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:26.6901243Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 452  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__0",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:26.6901243Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '2852'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:22.5887884Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:20.6320676Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:20.4756615Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 2852  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:20.4601035Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '3672'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:16.3751292Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:14.4218015Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:14.2657327Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 3672  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:14.2657327Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '5620'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:10.1793736Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:08.2261007Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 5620  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:08.0698394Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:08.0698394Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '3980'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:03.9525921Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:01.8117542Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 3980  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:01.6086065Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:28:01.6086065Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '5712'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:26.0029911Z"
+  },
+  {
+   "Descripcion": "Application pool 'PortalPagosPool' is being automatically disabled due to a series of failures in the process(es) serving that application pool.",
+   "EventID": "5002",
+   "EventLevelName": "Error",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:26.0029911Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:23.9380369Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:23.7817793Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 5712  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:23.7817793Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '1948'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:19.6845113Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:17.5281376Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:17.3719528Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 1948  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:17.3719528Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '3156'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:13.2828394Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:11.1695384Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:11.0133331Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 3156  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:11.0133331Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '4460'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:07.3738766Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:05.0924348Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 4460  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:04.9361721Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:04.9361721Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '1388'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:22:01.7824617Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:21:58.9385246Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:21:58.7353859Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 1388  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:21:58.7353859Z"
+  },
+  {
+   "Descripcion": "Application pool 'PortalPagosPool' is being automatically disabled due to a series of failures in the process(es) serving that application pool.",
+   "EventID": "5002",
+   "EventLevelName": "Error",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:39.3062109Z"
+  },
+  {
+   "Descripcion": "Application pool 'PortalPagosPool' is being automatically disabled due to a series of failures in the process(es) serving that application pool.",
+   "EventID": "5002",
+   "EventLevelName": "Error",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:39.3062109Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '3432'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:39.3062109Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:37.1086764Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 3432  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:36.936787Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:36.936787Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '2220'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:32.8777606Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:30.6549922Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:30.4987321Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 2220  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:30.4987321Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '2324'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:27.0254898Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:24.5843607Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:24.4125453Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 2324  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:24.4125453Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '5464'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:20.3172365Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:18.2031849Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:18.0313553Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 5464  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:18.0313553Z"
+  },
+  {
+   "Descripcion": "A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '2344'. The data field contains the error number.",
+   "EventID": "5011",
+   "EventLevelName": "Warning",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:17.4218801Z"
+  },
+  {
+   "Descripcion": "Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process i",
+   "EventID": "1000",
+   "EventLevelName": "Error",
+   "Source": "Application Error",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:10.4435145Z"
+  },
+  {
+   "Descripcion": "Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException    at ASP.fallar_aspx.<Page_Load>b__0(System.Object)    at System.Threadi",
+   "EventID": "1026",
+   "EventLevelName": "Error",
+   "Source": ".NET Runtime",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:10.0373443Z"
+  },
+  {
+   "Descripcion": "An unhandled exception occurred and the process was terminated.  Application ID: /LM/W3SVC/2/ROOT  Process ID: 2344  Exception: System.OutOfMemoryException  Message: Crash provocado (Reto 3)  StackTrace:    at ASP.fallar_aspx.<Page_Load>b__",
+   "EventID": "1325",
+   "EventLevelName": "Error",
+   "Source": "ASP.NET 4.0.30319.0",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:10.0060132Z"
+  },
+  {
+   "Descripcion": "The Windows Process Activation Service (WAS) started with 'Classic' mode using 'ConfigurationSystem'",
+   "EventID": "5211",
+   "EventLevelName": "Information",
+   "Source": "Microsoft-Windows-WAS",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:01:50.8550934Z"
+  }
+ ],
+ "Q5b_was_por_hora": [
+  {
+   "EventID": "5011",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:00:00Z",
+   "n": "5"
+  },
+  {
+   "EventID": "5002",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:00:00Z",
+   "n": "2"
+  },
+  {
+   "EventID": "5211",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:00:00Z",
+   "n": "1"
+  },
+  {
+   "EventID": "5011",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:00:00Z",
+   "n": "10"
+  },
+  {
+   "EventID": "5002",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:00:00Z",
+   "n": "2"
+  },
+  {
+   "EventID": "5117",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:00:00Z",
+   "n": "1"
+  }
+ ],
+ "Q6_senales_tempranas": [
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T01:50:00Z",
+   "Valor": "57.951116"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T01:55:00Z",
+   "Valor": "56.51179"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:00:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:00:00Z",
+   "Valor": "56.425563"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:00:00Z",
+   "Valor": "52.96484375"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:05:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:05:00Z",
+   "Valor": "57.5859375"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:05:00Z",
+   "Valor": "56.292906"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:10:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:10:00Z",
+   "Valor": "61.75"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:10:00Z",
+   "Valor": "56.239843"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:15:00Z",
+   "Valor": "56.209996"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:15:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:15:00Z",
+   "Valor": "66.2578125"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:20:00Z",
+   "Valor": "56.209996"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:20:00Z",
+   "Valor": "70.50390625"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:20:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:25:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:25:00Z",
+   "Valor": "74.90625"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:25:00Z",
+   "Valor": "56.209996"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:30:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:30:00Z",
+   "Valor": "79.1875"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:30:00Z",
+   "Valor": "56.203363"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:35:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:35:00Z",
+   "Valor": "83.54296875"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:35:00Z",
+   "Valor": "56.193414"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:00Z",
+   "Valor": "5"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:00Z",
+   "Valor": "48.64453125"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:40:00Z",
+   "Valor": "55.778861"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:45:00Z",
+   "Valor": "55.778861"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:45:00Z",
+   "Valor": "52.578125"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:45:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:50:00Z",
+   "Valor": "55.599774"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:50:00Z",
+   "Valor": "57.27734375"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:50:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:55:00Z",
+   "Valor": "61.5546875"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:55:00Z",
+   "Valor": "55.579876"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:55:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:00:00Z",
+   "Valor": "55.586509"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:00:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:00:00Z",
+   "Valor": "66.2109375"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:05:00Z",
+   "Valor": "55.586509"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:05:00Z",
+   "Valor": "70.6328125"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:05:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:10:00Z",
+   "Valor": "70.69921875"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:10:00Z",
+   "Valor": "55.57656"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:10:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:15:00Z",
+   "Valor": "71.88671875"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:15:00Z",
+   "Valor": "55.579876"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:15:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:20:00Z",
+   "Valor": "55.579876"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:20:00Z",
+   "Valor": "5"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:20:00Z",
+   "Valor": "72.28515625"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:25:00Z",
+   "Valor": "49.96484375"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:25:00Z",
+   "Valor": "5"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:25:00Z",
+   "Valor": "55.579876"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:30:00Z",
+   "Valor": "5"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:30:00Z",
+   "Valor": "48.2421875"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:30:00Z",
+   "Valor": "55.589825"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:35:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:35:00Z",
+   "Valor": "55.589825"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:35:00Z",
+   "Valor": "776.5546875"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:40:00Z",
+   "Valor": "55.579876"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:40:00Z",
+   "Valor": "942.2421875"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:40:00Z",
+   "Valor": "3"
+  },
+  {
+   "Serie": "w3wp_privado_MB",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:45:00Z",
+   "Valor": "285.09765625"
+  },
+  {
+   "Serie": "disco_C_libre_pct",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:45:00Z",
+   "Valor": "55.579876"
+  },
+  {
+   "Serie": "estado_pool (3=Running)",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:45:00Z",
+   "Valor": "3"
+  }
+ ],
+ "Q7_trazabilidad_remediacion": [
+  {
+   "AlertId": "",
+   "Detalle": "9191192f-7311-41ed-997d-754177a26163",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Failed",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:35:16.3689755Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "Reincidencia: el pool volvió a caer 10 min después de la última remediación",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Escalar",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:35:16.0791153Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "Alerta PortalPagos-Sitio-NoDisponible (Fired)",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Recibida",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:35:08.0964301Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "9191192f-7311-41ed-997d-754177a26163",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Started",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:35:05.9663852Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "9191192f-7311-41ed-997d-754177a26163",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Created",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:34:04.4904123Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "757fd582-bd0b-42ab-bd61-c3349093ee0a",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Failed",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:29:44.0250622Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "Reincidencia: el pool volvió a caer 5 min después de la última remediación",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Escalar",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:29:43.8779025Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "Alerta PortalPagos-Sitio-NoDisponible (Fired)",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Recibida",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:29:40.6199598Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "757fd582-bd0b-42ab-bd61-c3349093ee0a",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Started",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:29:39.6546351Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "757fd582-bd0b-42ab-bd61-c3349093ee0a",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Created",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:29:05.9613372Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "b8f69e9a-cbde-4ec8-b516-0f837f385ddb",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Completed",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:26:11.8429196Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Recuperado",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:26:11.7581772Z"
+  },
+  {
+   "AlertId": "c797b5a4-e006-f8d6-1d7e-b8f3cde10004",
+   "Detalle": "Stopped",
+   "EventID": "3001",
+   "Origen": "VM",
+   "Resultado": "Recuperado",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:25:34.3827533Z"
+  },
+  {
+   "AlertId": "c797b5a4-e006-f8d6-1d7e-b8f3cde10004",
+   "Detalle": "Stopped",
+   "EventID": "3000",
+   "Origen": "VM",
+   "Resultado": "",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:25:29.2966532Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "Alerta PortalPagos-Sitio-NoDisponible (Fired)",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Recibida",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:24:54.543182Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "b8f69e9a-cbde-4ec8-b516-0f837f385ddb",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Started",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:24:52.4870764Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "b8f69e9a-cbde-4ec8-b516-0f837f385ddb",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Created",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:24:02.1366569Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "f4a23ed9-093e-44bc-a981-a4a9a7de2083",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Failed",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:12:44.5515225Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "Reincidencia: el pool volvió a caer 5 min después de la última remediación",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Escalar",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:12:44.3030536Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "Alerta PortalPagos-Sitio-NoDisponible (Fired)",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Recibida",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:12:40.1183556Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "f4a23ed9-093e-44bc-a981-a4a9a7de2083",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Started",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:12:38.8899978Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "f4a23ed9-093e-44bc-a981-a4a9a7de2083",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Created",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:12:03.1069092Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "258d577a-2d83-47aa-a430-2407cde6ad8a",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Failed",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:08:53.1509011Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "Pool Started pero /health=503: la causa no es el pool, reiniciarlo no ayuda",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Escalar",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:08:53.0761126Z"
+  },
+  {
+   "AlertId": "b15a912e-b4c9-e940-d578-4eade9290004",
+   "Detalle": "Pool Started pero /health=503: la causa no es el pool, reiniciarlo no ayuda",
+   "EventID": "3003",
+   "Origen": "VM",
+   "Resultado": "Escalar",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:08:05.2600064Z"
+  },
+  {
+   "AlertId": "b15a912e-b4c9-e940-d578-4eade9290004",
+   "Detalle": "Pool Started pero /health=503: la causa no es el pool, reiniciarlo no ayuda",
+   "EventID": "3003",
+   "Origen": "VM",
+   "Resultado": "Escalar",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:08:05.2600064Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "Alerta PortalPagos-Sitio-NoDisponible (Fired)",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Recibida",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:07:38.5279074Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "258d577a-2d83-47aa-a430-2407cde6ad8a",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Started",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:07:37.4833605Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "258d577a-2d83-47aa-a430-2407cde6ad8a",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Created",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:07:05.7335064Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "b9461c4c-136e-4429-b2fd-5fc74cb09066",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Completed",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:02:22.9179638Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "Alerta resuelta",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Omitir",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:02:22.8339094Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "Alerta PortalPagos-Sitio-NoDisponible (Resolved)",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Recibida",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:02:16.5775812Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "b9461c4c-136e-4429-b2fd-5fc74cb09066",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Started",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:02:14.0448545Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "b9461c4c-136e-4429-b2fd-5fc74cb09066",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Created",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T03:00:07.5481539Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "ccc0f3f3-4f97-4218-8ebf-47355f744da9",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Completed",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:43:55.1478309Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Recuperado",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:43:55.0600096Z"
+  },
+  {
+   "AlertId": "19a3e182-f680-e828-8c20-9f114d590004",
+   "Detalle": "Stopped",
+   "EventID": "3001",
+   "Origen": "VM",
+   "Resultado": "Recuperado",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:43:45.3208008Z"
+  },
+  {
+   "AlertId": "19a3e182-f680-e828-8c20-9f114d590004",
+   "Detalle": "Stopped",
+   "EventID": "3000",
+   "Origen": "VM",
+   "Resultado": "",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:43:40.2239721Z"
+  },
+  {
+   "AlertId": "19a3e182-f680-e828-8c20-9f114d590004",
+   "Detalle": "Stopped",
+   "EventID": "3000",
+   "Origen": "VM",
+   "Resultado": "",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:43:40.2239721Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "Alerta PortalPagos-Sitio-NoDisponible (Fired)",
+   "EventID": "None",
+   "Origen": "Runbook",
+   "Resultado": "Recibida",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:43:00.8593847Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "ccc0f3f3-4f97-4218-8ebf-47355f744da9",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Started",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:42:58.5574453Z"
+  },
+  {
+   "AlertId": "",
+   "Detalle": "ccc0f3f3-4f97-4218-8ebf-47355f744da9",
+   "EventID": "None",
+   "Origen": "Job",
+   "Resultado": "Created",
+   "TableName": "PrimaryResult",
+   "TimeGenerated": "2026-10-02T02:42:09.8091133Z"
+  }
+ ],
+ "Q8_mttd_mttr": [
+  {
+   "Alerta_a_remediacion_seg": "None",
+   "Escenario": "fuga",
+   "MTTD_min": "None",
+   "MTTR_min": "None",
+   "T0": "2026-10-02T03:35:19.1677609Z",
+   "TableName": "PrimaryResult",
+   "detectado": "None",
+   "primer_fallo": "None",
+   "recuperado": "None",
+   "remediado": "None",
+   "runbook_en_vm": "None"
+  },
+  {
+   "Alerta_a_remediacion_seg": "None",
+   "Escenario": "crash",
+   "MTTD_min": "None",
+   "MTTR_min": "5.3",
+   "T0": "2026-10-02T03:28:01.4992223Z",
+   "TableName": "PrimaryResult",
+   "detectado": "None",
+   "primer_fallo": "2026-10-02T03:28:46.2618252Z",
+   "recuperado": "2026-10-02T03:34:06.9596896Z",
+   "remediado": "None",
+   "runbook_en_vm": "None"
+  },
+  {
+   "Alerta_a_remediacion_seg": "93",
+   "Escenario": "crash",
+   "MTTD_min": "1.6",
+   "MTTR_min": "3.3",
+   "T0": "2026-10-02T03:21:58.6416949Z",
+   "TableName": "PrimaryResult",
+   "detectado": "2026-10-02T03:24:01.5551916Z",
+   "primer_fallo": "2026-10-02T03:22:26.7998453Z",
+   "recuperado": "2026-10-02T03:25:46.7736771Z",
+   "remediado": "2026-10-02T03:25:34.3827533Z",
+   "runbook_en_vm": "2026-10-02T03:25:29.2966532Z"
+  },
+  {
+   "Alerta_a_remediacion_seg": "None",
+   "Escenario": "dependencia",
+   "MTTD_min": "0.8",
+   "MTTR_min": "5.4",
+   "T0": "2026-10-02T03:06:02.0838997Z",
+   "TableName": "PrimaryResult",
+   "detectado": "2026-10-02T03:07:04.5188885Z",
+   "primer_fallo": "2026-10-02T03:06:16.4108329Z",
+   "recuperado": "2026-10-02T03:11:37.4471616Z",
+   "remediado": "None",
+   "runbook_en_vm": "2026-10-02T03:08:05.2600064Z"
+  },
+  {
+   "Alerta_a_remediacion_seg": "None",
+   "Escenario": "dependencia",
+   "MTTD_min": "0.8",
+   "MTTR_min": "5.4",
+   "T0": "2026-10-02T03:06:02.0838997Z",
+   "TableName": "PrimaryResult",
+   "detectado": "2026-10-02T03:07:04.5188885Z",
+   "primer_fallo": "2026-10-02T03:06:16.4108329Z",
+   "recuperado": "2026-10-02T03:11:37.4471616Z",
+   "remediado": "None",
+   "runbook_en_vm": "2026-10-02T03:08:05.2600064Z"
+  },
+  {
+   "Alerta_a_remediacion_seg": "100",
+   "Escenario": "crash",
+   "MTTD_min": "1.2",
+   "MTTR_min": "3",
+   "T0": "2026-10-02T02:40:09.1419549Z",
+   "TableName": "PrimaryResult",
+   "detectado": "2026-10-02T02:42:05.2005492Z",
+   "primer_fallo": "2026-10-02T02:40:54.0052696Z",
+   "recuperado": "2026-10-02T02:43:54.0441409Z",
+   "remediado": "2026-10-02T02:43:45.3208008Z",
+   "runbook_en_vm": "2026-10-02T02:43:40.2239721Z"
+  },
+  {
+   "Alerta_a_remediacion_seg": "100",
+   "Escenario": "crash",
+   "MTTD_min": "1.2",
+   "MTTR_min": "3",
+   "T0": "2026-10-02T02:40:09.1419549Z",
+   "TableName": "PrimaryResult",
+   "detectado": "2026-10-02T02:42:05.2005492Z",
+   "primer_fallo": "2026-10-02T02:40:54.0052696Z",
+   "recuperado": "2026-10-02T02:43:54.0441409Z",
+   "remediado": "2026-10-02T02:43:45.3208008Z",
+   "runbook_en_vm": "2026-10-02T02:43:40.2239721Z"
+  }
+ ]
+}

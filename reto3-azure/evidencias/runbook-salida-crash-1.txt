@@ -1,0 +1,5 @@
+{"ts":"2026-10-02T02:43:00.2896212Z","runbook":"Restaurar-PoolIIS","decision":"Recibida","detalle":"Alerta PortalPagos-Sitio-NoDisponible (Fired)","datos":{"alerta":{"AlertId":"/subscriptions/<sub>/providers/Microsoft.AlertsManagement/alerts/19a3e182-f680-e828-8c20-9f114d590004","Regla":"PortalPagos-Sitio-NoDisponible","Severidad":"Sev1","Condicion":"Fired","Disparo":"2026-10-02T02:42:05.2005492Z","VmId":"/subscriptions/<sub>/resourcegroups/rg-portalpagos-lab/providers/microsoft.compute/virtualmachines/web-pagos-01"}}}
+
+{"ts":"2026-10-02T02:43:54.9979562Z","runbook":"Restaurar-PoolIIS","decision":"Recuperado","detalle":"","datos":{"vm":{"alertId":"19a3e182-f680-e828-8c20-9f114d590004","disparo":"2026-10-02T02:42:05.2005492Z","estadoAntes":"Stopped","healthAntes":503,"crashes15m":5,"inicio":"2026-10-01T21:43:40.1773852-05:00","estadoDespues":"Started","healthDespues":200,"fin":"2026-10-01T21:43:45.3051727-05:00","resultado":"Recuperado"}}}
+
+

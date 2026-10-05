@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="39" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="1" invalid="0" date="2026-10-04" time="22:21:55">
+  <environment clr-version="8.0.10" user-domain="" machine-name="equipo" nunit-version="2.5.8.0" platform="Darwin" cwd="<repo>" os-version="22.6.0" user="usuario" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Ignored" success="True" time="15.6161" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="<repo>/tests/MantenimientoPortal.Tests.ps1" executed="True" result="Ignored" success="True" time="15.6161" asserts="0" description="<repo>/tests/MantenimientoPortal.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Salvaguardas de rutas" executed="True" result="Success" success="True" time="1.0267" asserts="0" description="Salvaguardas de rutas">
+            <results>
+              <test-case description="rechaza ruta vacía e inexistente" name="Salvaguardas de rutas.rechaza ruta vacía e inexistente" time="0.1979" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="rechaza la raíz de la unidad y una carpeta de un solo nivel" name="Salvaguardas de rutas.rechaza la raíz de la unidad y una carpeta de un solo nivel" time="0.4681" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="volcados: acepta una carpeta de primer nivel como C:\CrashDumps, pero nunca la raíz" name="Salvaguardas de rutas.volcados: acepta una carpeta de primer nivel como C:\CrashDumps, pero nunca la raíz" time="0.0986" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="acepta una carpeta de logs anidada" name="Salvaguardas de rutas.acepta una carpeta de logs anidada" time="0.0166" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="Invoke-PurgaArchivos no borra nada si la ruta es insegura (el caso %LOGDIR% vacío del .BAT)" name="Salvaguardas de rutas.Invoke-PurgaArchivos no borra nada si la ruta es insegura (el caso %LOGDIR% vacío del .BAT)" time="0.1296" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Modo simulación (-WhatIf)" executed="True" result="Success" success="True" time="1.5216" asserts="0" description="Modo simulación (-WhatIf)">
+            <results>
+              <test-case description="no copia, no borra y deja registro de la simulación" name="Modo simulación (-WhatIf).no copia, no borra y deja registro de la simulación" time="0.4596" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Archivado y purga de logs IIS" executed="True" result="Success" success="True" time="1.8416" asserts="0" description="Archivado y purga de logs IIS">
+            <results>
+              <test-case description="archiva todos los logs cerrados con hash idéntico" name="Archivado y purga de logs IIS.archiva todos los logs cerrados con hash idéntico" time="0.034" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="borra localmente solo lo que supera la retención (14 días) y está archivado" name="Archivado y purga de logs IIS.borra localmente solo lo que supera la retención (14 días) y está archivado" time="0.0185" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="no deja archivos .partial" name="Archivado y purga de logs IIS.no deja archivos .partial" time="0.0157" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="termina con código 0" name="Archivado y purga de logs IIS.termina con código 0" time="0.0168" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Idempotencia" executed="True" result="Success" success="True" time="2.555" asserts="0" description="Idempotencia">
+            <results>
+              <test-case description="una segunda ejecución no copia ni borra nada y vuelve a dar 0" name="Idempotencia.una segunda ejecución no copia ni borra nada y vuelve a dar 0" time="0.6376" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Share de auditoría caído" executed="True" result="Success" success="True" time="3.1726" asserts="0" description="Share de auditoría caído">
+            <results>
+              <test-case description="no purga ningún log IIS y termina en Error (3)" name="Share de auditoría caído.no purga ningún log IIS y termina en Error (3)" time="0.1892" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="si la copia en auditoría está corrupta, la detecta, la recopia y solo entonces purga (Aviso)" name="Share de auditoría caído.si la copia en auditoría está corrupta, la detecta, la recopia y solo entonces purga (Aviso)" time="0.3565" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Logs abiertos por IIS (caso real de la VM, 02 al 04-oct)" executed="True" result="Ignored" success="True" time="4.1706" asserts="0" description="Logs abiertos por IIS (caso real de la VM, 02 al 04-oct)">
+            <results>
+              <test-case description="un log en uso no es un error: no se copia, no se purga y se archivará después" name="Logs abiertos por IIS (caso real de la VM, 02 al 04-oct).un log en uso no es un error: no se copia, no se purga y se archivará después" time="0.504" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="un log de hace días que sigue bloqueado produce Aviso (2)" name="Logs abiertos por IIS (caso real de la VM, 02 al 04-oct).un log de hace días que sigue bloqueado produce Aviso (2)" time="0.3938" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="Test-ArchivoEnUso detecta un archivo abierto sin permiso de lectura (Windows)" name="Logs abiertos por IIS (caso real de la VM, 02 al 04-oct).Test-ArchivoEnUso detecta un archivo abierto sin permiso de lectura (Windows)" time="0.0152" asserts="0" success="False" result="Ignored" executed="False" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Logs de aplicación y volcados" executed="True" result="Success" success="True" time="4.8245" asserts="0" description="Logs de aplicación y volcados">
+            <results>
+              <test-case description="purga logs de app con más de 7 días" name="Logs de aplicación y volcados.purga logs de app con más de 7 días" time="0.0188" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="conserva los 5 volcados más recientes y nunca borra los de menos de 14 días" name="Logs de aplicación y volcados.conserva los 5 volcados más recientes y nunca borra los de menos de 14 días" time="0.0242" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="un volcado bloqueado da Error pero no aborta los pasos siguientes" name="Logs de aplicación y volcados.un volcado bloqueado da Error pero no aborta los pasos siguientes" time="0.3774" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Presión de disco (logs de app en Debug, riesgo R1 del Reto 1)" executed="True" result="Success" success="True" time="5.4371" asserts="0" description="Presión de disco (logs de app en Debug, riesgo R1 del Reto 1)">
+            <results>
+              <test-case description="borra del más viejo al más nuevo solo hasta recuperar el umbral" name="Presión de disco (logs de app en Debug, riesgo R1 del Reto 1).borra del más viejo al más nuevo solo hasta recuperar el umbral" time="0.0991" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="nunca baja del piso de días, aunque no alcance el umbral" name="Presión de disco (logs de app en Debug, riesgo R1 del Reto 1).nunca baja del piso de días, aunque no alcance el umbral" time="0.0688" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="sin presión no borra nada" name="Presión de disco (logs de app en Debug, riesgo R1 del Reto 1).sin presión no borra nada" time="0.0709" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="en -WhatIf no borra, pero informa hasta dónde llegaría" name="Presión de disco (logs de app en Debug, riesgo R1 del Reto 1).en -WhatIf no borra, pero informa hasta dónde llegaría" time="0.0517" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="nunca toca los logs IIS ni los volcados recientes" name="Presión de disco (logs de app en Debug, riesgo R1 del Reto 1).nunca toca los logs IIS ni los volcados recientes" time="0.2526" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Servicio de notificaciones (sin reinicio ciego)" executed="True" result="Success" success="True" time="5.8252" asserts="0" description="Servicio de notificaciones (sin reinicio ciego)">
+            <results>
+              <test-case description="si está en ejecución no hace nada" name="Servicio de notificaciones (sin reinicio ciego).si está en ejecución no hace nada" time="0.1451" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="si está detenido lo inicia y avisa" name="Servicio de notificaciones (sin reinicio ciego).si está detenido lo inicia y avisa" time="0.1012" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="si está deshabilitado no lo toca" name="Servicio de notificaciones (sin reinicio ciego).si está deshabilitado no lo toca" time="0.0418" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="en -WhatIf no inicia el servicio" name="Servicio de notificaciones (sin reinicio ciego).en -WhatIf no inicia el servicio" time="0.0392" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="si falla al iniciar devuelve Error" name="Servicio de notificaciones (sin reinicio ciego).si falla al iniciar devuelve Error" time="0.0464" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Disco y pool" executed="True" result="Success" success="True" time="6.1194" asserts="0" description="Disco y pool">
+            <results>
+              <test-case description="disco por debajo del umbral crítico produce Error (3): la señal que faltó antes del 22-sep" name="Disco y pool.disco por debajo del umbral crítico produce Error (3): la señal que faltó antes del 22-sep" time="0.2145" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="pool detenido produce Aviso y no intenta reiniciarlo" name="Disco y pool.pool detenido produce Aviso y no intenta reiniciarlo" time="0.0417" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Ejecución única" executed="True" result="Success" success="True" time="6.2356" asserts="0" description="Ejecución única">
+            <results>
+              <test-case description="si otra ejecución tiene el candado, sale con 4 sin tocar nada" name="Ejecución única.si otra ejecución tiene el candado, sale con 4 sin tocar nada" time="0.0803" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Log estructurado" executed="True" result="Success" success="True" time="6.6673" asserts="0" description="Log estructurado">
+            <results>
+              <test-case description="cada línea es JSON válido con los campos obligatorios y un único runId por ejecución" name="Log estructurado.cada línea es JSON válido con los campos obligatorios y un único runId por ejecución" time="0.3774" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Script de entrada: códigos de salida reales del proceso" executed="True" result="Success" success="True" time="14.7325" asserts="0" description="Script de entrada: códigos de salida reales del proceso">
+            <results>
+              <test-case description="parámetro inválido =&gt; 1" name="Script de entrada: códigos de salida reales del proceso.parámetro inválido =&gt; 1" time="1.0853" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="umbral crítico mayor que aviso =&gt; 1" name="Script de entrada: códigos de salida reales del proceso.umbral crítico mayor que aviso =&gt; 1" time="0.8145" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="nombre de pool o servicio con caracteres no válidos, o ruta de volcados relativa =&gt; 1" name="Script de entrada: códigos de salida reales del proceso.nombre de pool o servicio con caracteres no válidos, o ruta de volcados relativa =&gt; 1" time="2.22" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="piso de presión mayor que la retención de app =&gt; 1" name="Script de entrada: códigos de salida reales del proceso.piso de presión mayor que la retención de app =&gt; 1" time="1.3438" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="ejecución normal =&gt; 0, y share caído =&gt; 3" name="Script de entrada: códigos de salida reales del proceso.ejecución normal =&gt; 0, y share caído =&gt; 3" time="2.5578" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Seguridad del código" executed="True" result="Success" success="True" time="14.7676" asserts="0" description="Seguridad del código">
+            <results>
+              <test-case description="no contiene credenciales ni net use" name="Seguridad del código.no contiene credenciales ni net use" time="0.0295" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

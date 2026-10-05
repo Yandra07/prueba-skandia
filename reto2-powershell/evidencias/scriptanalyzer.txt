@@ -1,0 +1,11 @@
+PSScriptAnalyzer 1.25.0 · 2026-10-04T21:11:21 · PowerShell 7.4.6 en macOS
+src (todas las severidades, PSScriptAnalyzerSettings.psd1): 0 hallazgos
+Compatibilidad de sintaxis con Windows PowerShell 5.1 y PowerShell 7.0 (src): 0 hallazgos
+tests (Error/Warning): 7 hallazgos de estilo en los stubs y helpers de prueba, aceptados:
+  PSReviewUnusedParameter MantenimientoPortal.Tests.ps1:60
+  PSReviewUnusedParameter MantenimientoPortal.Tests.ps1:60
+  PSReviewUnusedParameter MantenimientoPortal.Tests.ps1:61
+  PSReviewUnusedParameter MantenimientoPortal.Tests.ps1:61
+  PSUseShouldProcessForStateChangingFunctions MantenimientoPortal.Tests.ps1:20
+  PSUseShouldProcessForStateChangingFunctions MantenimientoPortal.Tests.ps1:235
+  PSUseSupportsShouldProcess MantenimientoPortal.Tests.ps1:50

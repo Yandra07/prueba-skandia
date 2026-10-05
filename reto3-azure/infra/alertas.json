@@ -1,0 +1,70 @@
+[
+  {
+    "nombre": "PortalPagos-Sitio-NoDisponible",
+    "severidad": 1,
+    "alcance": "vm",
+    "frecuencia": "PT1M",
+    "ventana": "PT5M",
+    "grupo": "remediacion",
+    "descripcion": "El portal no responde: 2 o más señales de falla en 5 min (sondas fallidas, o IIS deshabilitó el pool con WAS 5002). Dispara la auto-remediación. Consulta simple (solo where) porque las alertas de 1 minuto no admiten let/union/summarize. Sin resolución automática: si la falla sigue, vuelve a disparar cada 5 min y el runbook decide (reincidencia, límite o ventana de mantenimiento => verifica el estado real y escala solo si el portal sigue caído).",
+    "consulta": "Event\n| where (Source == \"AndinaSonda\" and EventID == 2001) or (Source == \"Microsoft-Windows-WAS\" and EventID == 5002)\n| project TimeGenerated, Source, EventID",
+    "umbral": 1,
+    "autoMitigar": false,
+    "silenciar": "PT5M"
+  },
+  {
+    "nombre": "PortalPagos-5xx-Alto",
+    "severidad": 2,
+    "alcance": "vm",
+    "frecuencia": "PT5M",
+    "ventana": "PT5M",
+    "grupo": "noc",
+    "descripcion": "Más del 5 % de las solicitudes de usuario con error 5xx en 5 min (con al menos 20 solicitudes). Es lo que vivieron los clientes de 13:23 a 14:38 del 18-sep mientras /health respondía 200.",
+    "consulta": "W3CIISLog\n| where csUriStem !in~ (\"/health.aspx\", \"/fallar.aspx\")\n| summarize total = count(), errores = countif(toint(scStatus) >= 500)\n| extend pct = round(100.0 * errores / total, 1)\n| where total >= 20 and pct > 5",
+    "umbral": 0
+  },
+  {
+    "nombre": "PortalPagos-Memoria-Pool",
+    "severidad": 3,
+    "alcance": "vm",
+    "frecuencia": "PT5M",
+    "ventana": "PT15M",
+    "grupo": "noc",
+    "descripcion": "Alerta temprana: la memoria privada de w3wp supera 800 MB (2,5 veces el máximo normal de ~320 MB) durante 15 min. Con los datos del kit se habría cumplido el 16-sep a las 15:10, unas 46 h antes del primer error.",
+    "consulta": "Perf\n| where ObjectName == \"Process\" and CounterName == \"Private Bytes\" and InstanceName startswith \"w3wp\"\n| summarize minimo_mb = min(CounterValue) / 1048576 by InstanceName\n| where minimo_mb > 800",
+    "umbral": 0
+  },
+  {
+    "nombre": "PortalPagos-Disco-C-Bajo",
+    "severidad": 2,
+    "alcance": "vm",
+    "frecuencia": "PT15M",
+    "ventana": "PT30M",
+    "grupo": "noc",
+    "descripcion": "Menos del 15 % libre en C: (promedio de 30 min). En WEB-PAGOS-01 el disco cayó del 39 % al 9 % en 4 días.",
+    "consulta": "Perf\n| where ObjectName == \"LogicalDisk\" and CounterName == \"% Free Space\" and InstanceName == \"C:\"\n| summarize libre_pct = avg(CounterValue)\n| where libre_pct < 15",
+    "umbral": 0
+  },
+  {
+    "nombre": "PortalPagos-Remediacion-Escalada",
+    "severidad": 1,
+    "alcance": "workspace",
+    "frecuencia": "PT5M",
+    "ventana": "PT10M",
+    "grupo": "noc",
+    "descripcion": "La auto-remediación no pudo o no debía actuar (límite de intentos, reincidencia, causa distinta al pool, VM sin respuesta): una persona tiene que intervenir.",
+    "consulta": "union isfuzzy=true\n(AzureDiagnostics\n | where ResourceProvider == \"MICROSOFT.AUTOMATION\" and Category == \"JobLogs\" and RunbookName_s == \"Restaurar-PoolIIS\" and ResultType == \"Failed\"\n | project TimeGenerated, origen = \"runbook\", detalle = JobId_g),\n(Event\n | where Source == \"AndinaRemediacion\" and ((EventID == 3003 and EventLevelName == \"Warning\") or EventID == 3002)\n | project TimeGenerated, origen = \"vm\", detalle = RenderedDescription)",
+    "umbral": 0
+  },
+  {
+    "nombre": "PortalPagos-VM-SinSenal",
+    "severidad": 1,
+    "alcance": "workspace",
+    "frecuencia": "PT5M",
+    "ventana": "PT1H",
+    "grupo": "noc",
+    "descripcion": "La VM no envía heartbeat hace más de 5 min: la sonda y la remediación tampoco funcionan.",
+    "consulta": "Heartbeat\n| where Computer startswith \"web-pagos\"\n| summarize ultimo = max(TimeGenerated)\n| extend ultimo = coalesce(ultimo, datetime(2000-01-01))\n| where ultimo < ago(5m)",
+    "umbral": 0
+  }
+]

@@ -1,0 +1,148 @@
+{
+  "version": "1.0",
+  "generado_utc": "2026-10-02T16:56:42Z",
+  "alerta": {
+    "id": "7f1c2b3a-0000-0000-0000-000000000001",
+    "regla": "PortalPagos-5xx-alto",
+    "severidad": "Sev1",
+    "disparo_utc": "2026-09-20T15:00:00.000Z",
+    "objetivo": "web-pagos-01"
+  },
+  "origen": "respaldo_reglas",
+  "modelo": null,
+  "triage": {
+    "resumen": "[Respaldo por reglas] Alerta PortalPagos-5xx-alto (Sev1). No hay señales reconocibles en el contexto.",
+    "que_esta_pasando": "Resumen generado por reglas, sin modelo de lenguaje: No hay señales reconocibles en el contexto",
+    "impacto": {
+      "nivel": "medio",
+      "descripcion": "No estimado: el respaldo no interpreta métricas. Ver evidencias."
+    },
+    "hipotesis": [
+      {
+        "descripcion": "No hay señales reconocibles en el contexto",
+        "probabilidad": "baja",
+        "evidencia": [
+          {
+            "id": "E1",
+            "cita": "[AndinaDeploy 1000] Despliegue completado: PortalPagos v2.3.1 (antes v2.3.0). Usuario: ANDINA\\svc_deploy. Cambios: nuevo"
+          }
+        ]
+      }
+    ],
+    "accion_sugerida": {
+      "runbook": "RB-00",
+      "justificacion": "Triage automático no disponible y sin señal inequívoca: decide la guardia.",
+      "evidencia": [
+        "E1"
+      ]
+    },
+    "confianza": {
+      "nivel": "baja",
+      "razon": "Generado por reglas porque el modelo no estuvo disponible o fue inválido: respuesta inválida: cita_no_literal; hipotesis_sin_evidencia"
+    },
+    "datos_faltantes": [
+      "Análisis del modelo de lenguaje"
+    ]
+  },
+  "accion": {
+    "runbook": "RB-00",
+    "justificacion": "Triage automático no disponible y sin señal inequívoca: decide la guardia.",
+    "evidencia": [
+      "E1"
+    ],
+    "nombre": "Escalar a la persona de guardia (sin acción automática)",
+    "requiere_aprobacion_humana": true,
+    "ejecutada": false
+  },
+  "validacion": {
+    "valido": true,
+    "problemas": [],
+    "intentos": [
+      {
+        "vuelta": 1,
+        "resultado": "grave",
+        "problemas": [
+          {
+            "tipo": "esquema",
+            "detalle": "accion_sugerida/evidencia/0: 'alerta' does not match '^E[0-9]+$'"
+          }
+        ],
+        "meta": {
+          "modelo": "gpt-4.1-mini-2025-04-14",
+          "tokens": {
+            "completion_tokens": 714,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "latency_checkpoint": {
+              "engine_tbt_ms": 7,
+              "engine_ttft_ms": 43,
+              "engine_ttlt_ms": 5065,
+              "pre_inference_ms": 157,
+              "service_tbt_ms": 7,
+              "service_ttft_ms": 374,
+              "service_ttlt_ms": 5422,
+              "user_visible_ttft_ms": 217
+            },
+            "prompt_tokens": 1582,
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 0
+            },
+            "total_tokens": 2296
+          },
+          "latencia_ms": 6562,
+          "intentos": 1
+        }
+      },
+      {
+        "vuelta": 2,
+        "resultado": "grave",
+        "problemas": [
+          {
+            "tipo": "cita_no_literal",
+            "detalle": "hipótesis 1: 'Despliegue completado: PortalPagos v2.3.1 (antes v2.3.0). Cambios: nuevo flujo d' no aparece en E1"
+          },
+          {
+            "tipo": "hipotesis_sin_evidencia",
+            "detalle": "hipótesis 1 ('El despliegue reciente del 15 de septiembre introdujo un err') no tiene evidencia verificable"
+          }
+        ],
+        "meta": {
+          "modelo": "gpt-4.1-mini-2025-04-14",
+          "tokens": {
+            "completion_tokens": 711,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "latency_checkpoint": {
+              "engine_tbt_ms": 8,
+              "engine_ttft_ms": 57,
+              "engine_ttlt_ms": 5823,
+              "pre_inference_ms": 235,
+              "service_tbt_ms": 8,
+              "service_ttft_ms": 435,
+              "service_ttlt_ms": 6197,
+              "user_visible_ttft_ms": 201
+            },
+            "prompt_tokens": 2366,
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 2176
+            },
+            "total_tokens": 3077
+          },
+          "latencia_ms": 7146,
+          "intentos": 1
+        }
+      }
+    ]
+  },
+  "duracion_ms": 13710
+}

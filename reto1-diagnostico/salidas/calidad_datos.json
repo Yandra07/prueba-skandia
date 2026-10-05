@@ -1,0 +1,121 @@
+{
+  "iis_archivos_descartados": [
+    {
+      "archivo": "u_ex260916 - copia.log",
+      "motivo": "duplicado exacto de u_ex260916.log",
+      "sha256": "e17d0efd4a25"
+    }
+  ],
+  "iis_cobertura_archivos": {
+    "u_ex260914.log": {
+      "desde_local": "2026-09-14 00:00:01",
+      "hasta_local": "2026-09-14 18:59:52",
+      "lineas": 23230
+    },
+    "u_ex260915.log": {
+      "desde_local": "2026-09-14 19:00:04",
+      "hasta_local": "2026-09-15 18:59:58",
+      "lineas": 24996
+    },
+    "u_ex260916.log": {
+      "desde_local": "2026-09-15 19:00:00",
+      "hasta_local": "2026-09-16 18:59:56",
+      "lineas": 25882
+    },
+    "u_ex260917.log": {
+      "desde_local": "2026-09-16 19:00:04",
+      "hasta_local": "2026-09-17 18:59:49",
+      "lineas": 28448
+    },
+    "u_ex260918.log": {
+      "desde_local": "2026-09-17 19:00:04",
+      "hasta_local": "2026-09-18 18:59:54",
+      "lineas": 36485
+    },
+    "u_ex260919.log": {
+      "desde_local": "2026-09-18 19:00:01",
+      "hasta_local": "2026-09-19 18:59:45",
+      "lineas": 15903
+    },
+    "u_ex260920.log": {
+      "desde_local": "2026-09-19 19:00:05",
+      "hasta_local": "2026-09-20 18:59:35",
+      "lineas": 9765
+    },
+    "u_ex260921.log": {
+      "desde_local": "2026-09-20 19:00:05",
+      "hasta_local": "2026-09-20 23:59:57",
+      "lineas": 1247
+    }
+  },
+  "iis_rotacion_19h_local": true,
+  "iis_cambio_formato": {
+    "archivo": "u_ex260917.log",
+    "linea_fields": 2351,
+    "primera_linea_datos": 2352,
+    "ts_utc": "2026-09-17 03:12:05",
+    "ts_local": "2026-09-16 22:12:05",
+    "detalle": "Se agregan cs-host y X-Forwarded-For; desde aquí c-ip de los usuarios es 10.20.4.4 (proxy).",
+    "pct_usuarios_via_proxy_despues": 100.0,
+    "evento_de_cambio_registrado": false
+  },
+  "zona_horaria": {
+    "supuesto": "IIS/HTTP.sys en UTC; eventos y Perfmon en hora local (UTC-5)",
+    "evidencia": {
+      "WAS_5002_pool_deshabilitado_local": "2026-09-18 14:38:05",
+      "httperr_primer_503_utc": "2026-09-18 19:38:00",
+      "httperr_primer_503_local": "2026-09-18 14:38:00",
+      "desfase_segundos_tras_convertir": -5.0,
+      "iisreset_hueco_max_s_convirtiendo_utc": [
+        46.0,
+        60.0,
+        50.0,
+        45.0,
+        42.0,
+        48.0,
+        60.0
+      ],
+      "iisreset_hueco_max_s_sin_convertir": [
+        null,
+        30.0,
+        24.0,
+        15.0,
+        19.0,
+        11.0,
+        30.0
+      ],
+      "iisreset_coincide_solo_si_se_convierte": true
+    }
+  },
+  "perfmon": {
+    "muestras": 2016,
+    "intervalo_s": 300,
+    "w3wp_vacios": 13,
+    "w3wp_vacios_ts": [
+      "09-15 03:30",
+      "09-15 06:10",
+      "09-15 18:30",
+      "09-16 19:35",
+      "09-16 22:25",
+      "09-17 01:30",
+      "09-18 14:40",
+      "09-18 14:45",
+      "09-18 14:50",
+      "09-18 14:55",
+      "09-18 15:00",
+      "09-19 07:45",
+      "09-19 14:40"
+    ],
+    "nota": "Vacíos = proceso w3wp inexistente en ese instante (caída o reciclaje)."
+  },
+  "httperr_cobertura": {
+    "desde_local": "2026-09-18 14:38:00",
+    "hasta_local": "2026-09-19 02:02:11",
+    "nota": "Solo cubre desde el 18/09; no permite medir 503 de HTTP.sys en días previos."
+  },
+  "mantenimiento_log": {
+    "lineas": 30,
+    "lineas_proceso_ok": 30,
+    "nota": "Sin fecha; el .bat escribe 'Proceso OK' siempre (no refleja éxito real)."
+  }
+}
