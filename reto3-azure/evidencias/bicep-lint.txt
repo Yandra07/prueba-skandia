@@ -1,0 +1,1 @@
+bicep Bicep CLI version 0.47.16 (3f73e1a234) · lint: 0 advertencias · 2026-10-01T20:18:18-05:00

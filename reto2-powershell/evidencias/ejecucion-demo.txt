@@ -1,0 +1,79 @@
+# Evidencia de ejecución · 2026-10-04T21:09:12-0500 · PowerShell 7.4.6 en macOS 13.7.8
+# Escenario: 6 logs IIS (0, 3, 13, 15, 16 y 20 días), 5 logs de app (0, 2, 3, 8 y 9 días), 5 dumps de hace 13 días
+### Estado inicial
+./CrashDumps/w3wp.exe.3533.dmp
+./CrashDumps/w3wp.exe.4471.dmp
+./CrashDumps/w3wp.exe.5703.dmp
+./CrashDumps/w3wp.exe.7138.dmp
+./CrashDumps/w3wp.exe.7364.dmp
+./PortalPagos/logs/portal-20260925.log
+./PortalPagos/logs/portal-20260926.log
+./PortalPagos/logs/portal-20261001.log
+./PortalPagos/logs/portal-20261002.log
+./PortalPagos/logs/portal-20261004.log
+./inetpub/logs/LogFiles/W3SVC2/u_ex260914.log
+./inetpub/logs/LogFiles/W3SVC2/u_ex260918.log
+./inetpub/logs/LogFiles/W3SVC2/u_ex260919.log
+./inetpub/logs/LogFiles/W3SVC2/u_ex260921.log
+./inetpub/logs/LogFiles/W3SVC2/u_ex261001.log
+./inetpub/logs/LogFiles/W3SVC2/u_ex261004.log
+
+### 1) Simulación: -WhatIf (no cambia nada)
+What if: Performing the operation "Copiar u_ex260914.log a auditoría" on target "<demo>/fs-auditoria/WEB-PAGOS-01/W3SVC2/u_ex260914.log".
+What if: Performing the operation "Copiar u_ex260918.log a auditoría" on target "<demo>/fs-auditoria/WEB-PAGOS-01/W3SVC2/u_ex260918.log".
+What if: Performing the operation "Copiar u_ex260919.log a auditoría" on target "<demo>/fs-auditoria/WEB-PAGOS-01/W3SVC2/u_ex260919.log".
+What if: Performing the operation "Copiar u_ex260921.log a auditoría" on target "<demo>/fs-auditoria/WEB-PAGOS-01/W3SVC2/u_ex260921.log".
+What if: Performing the operation "Copiar u_ex261001.log a auditoría" on target "<demo>/fs-auditoria/WEB-PAGOS-01/W3SVC2/u_ex261001.log".
+What if: Performing the operation "Copiar u_ex261004.log a auditoría" on target "<demo>/fs-auditoria/WEB-PAGOS-01/W3SVC2/u_ex261004.log".
+What if: Performing the operation "Borrar (antigüedad > 14 días)" on target "<demo>/inetpub/logs/LogFiles/W3SVC2/u_ex260914.log".
+What if: Performing the operation "Borrar (antigüedad > 14 días)" on target "<demo>/inetpub/logs/LogFiles/W3SVC2/u_ex260918.log".
+What if: Performing the operation "Borrar (antigüedad > 14 días)" on target "<demo>/inetpub/logs/LogFiles/W3SVC2/u_ex260919.log".
+What if: Performing the operation "Borrar (antigüedad > 7 días)" on target "<demo>/PortalPagos/logs/portal-20260925.log".
+What if: Performing the operation "Borrar (antigüedad > 7 días)" on target "<demo>/PortalPagos/logs/portal-20260926.log".
+Código de salida: 0 · log: <demo>/ProgramData/logs/mantenimiento-20261004.jsonl
+exit=0
+archivos en auditoría tras -WhatIf: 0
+
+### 2) Ejecución real
+Código de salida: 0 · log: <demo>/ProgramData/logs/mantenimiento-20261004.jsonl
+exit=0
+
+### 3) Segunda ejecución (idempotencia)
+Código de salida: 0 · log: <demo>/ProgramData/logs/mantenimiento-20261004.jsonl
+exit=0
+
+### 4) Share de auditoría caído
+WARNING: [archivado-auditoria] Destino de auditoría no accesible: <demo>/fs-caido
+WARNING: [fin] Fin de mantenimiento: código 3
+Código de salida: 3 · log: <demo>/ProgramData/logs/mantenimiento-20261004.jsonl
+exit=3
+
+### 5) Parámetro inválido (-DiasRetencionIis 0)
+Invoke-MantenimientoPortalPagos.ps1: Cannot validate argument on parameter 'DiasRetencionIis'. The 0 argument is less than the minimum allowed range of 3. Supply an argument that is greater than or equal to 3 and then try the command again.
+exit=1
+
+### 6) Presión de disco: umbral de aviso 90 % (forzado: el disco de la demo está por debajo), piso de 1 día de logs de app
+# Esperado: borra los logs de app de 2 y 3 días, conserva el de hoy, no toca IIS ni volcados; los 100 KB liberados no alcanzan el umbral, así que el resultado es Aviso (2) o Error (3) según el disco real
+WARNING: [disco-inicial] /: 53.57 % libre (61760 MB)
+WARNING: [purga-presion-disco] Presión de disco: 2 logs de app borrados (0.2 MB), 53.57 % -> ~53.57 % libre. No alcanza: queda por debajo del umbral sin bajar de 1 día(s) de logs
+WARNING: [disco-final] /: 53.57 % libre (61760 MB)
+WARNING: [fin] Fin de mantenimiento: código 2
+Código de salida: 2 · log: <demo>/ProgramData/logs/mantenimiento-20261004.jsonl
+exit=2
+
+### Estado final
+./CrashDumps/w3wp.exe.3533.dmp
+./CrashDumps/w3wp.exe.4471.dmp
+./CrashDumps/w3wp.exe.5703.dmp
+./CrashDumps/w3wp.exe.7138.dmp
+./CrashDumps/w3wp.exe.7364.dmp
+./PortalPagos/logs/portal-20261004.log
+./fs-auditoria/WEB-PAGOS-01/W3SVC2/u_ex260914.log
+./fs-auditoria/WEB-PAGOS-01/W3SVC2/u_ex260918.log
+./fs-auditoria/WEB-PAGOS-01/W3SVC2/u_ex260919.log
+./fs-auditoria/WEB-PAGOS-01/W3SVC2/u_ex260921.log
+./fs-auditoria/WEB-PAGOS-01/W3SVC2/u_ex261001.log
+./fs-auditoria/WEB-PAGOS-01/W3SVC2/u_ex261004.log
+./inetpub/logs/LogFiles/W3SVC2/u_ex260921.log
+./inetpub/logs/LogFiles/W3SVC2/u_ex261001.log
+./inetpub/logs/LogFiles/W3SVC2/u_ex261004.log

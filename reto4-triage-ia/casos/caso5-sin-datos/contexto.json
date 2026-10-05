@@ -1,0 +1,49 @@
+{
+ "alerta": {
+  "id": "7f1c2b3a-0000-0000-0000-000000000001",
+  "regla": "PortalPagos-5xx-alto",
+  "severidad": "Sev1",
+  "condicion": "Fired",
+  "disparo_utc": "2026-09-20T15:00:00.000Z",
+  "descripcion": "Tasa de 5xx > 5% en 5 minutos",
+  "objetivo": "web-pagos-01",
+  "consulta": "W3CIISLog | where csUriStem !~ '/health' | summarize total=count(), err=countif(scStatus >= 500) by bin(TimeGenerated,5m) | extend pct=100.0*err/total",
+  "valor": 6.1,
+  "umbral": "5"
+ },
+ "ventana": {
+  "desde": "2026-09-20 09:00",
+  "hasta": "2026-09-20 10:02",
+  "zona": "America/Bogota",
+  "fuente": "kit"
+ },
+ "evidencias": [
+  {
+   "id": "E1",
+   "fuente": "evento",
+   "ts": "2026-09-15 22:03:00",
+   "texto": "[AndinaDeploy 1000] Despliegue completado: PortalPagos v2.3.1 (antes v2.3.0). Usuario: ANDINA\\svc_deploy. Cambios: nuevo flujo de confirmacion de pagos, cache de sesiones de pago, appsettings Serilog:MinimumLevel=Debug.",
+   "senales": [
+    "despliegue_reciente"
+   ],
+   "ts_fin": "2026-09-15 22:03:00"
+  },
+  {
+   "id": "E2",
+   "fuente": "evento",
+   "ts": "2026-09-16 11:30:02",
+   "texto": "[AndinaDeploy 1001] Cambio de infraestructura: se retira la unidad D: del servidor (migracion de almacenamiento). Logs IIS ahora en C:\\inetpub\\logs\\LogFiles.",
+   "senales": [
+    "despliegue_reciente"
+   ],
+   "ts_fin": "2026-09-16 11:30:02"
+  },
+  {
+   "id": "E3",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-20 09:50:00",
+   "senales": [],
+   "texto": "IIS 09:50-10:00: 41 solicitudes de usuario, 0 con 5xx (0.0 %), latencia p95 431 ms"
+  }
+ ]
+}

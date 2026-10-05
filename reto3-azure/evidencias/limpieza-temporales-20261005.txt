@@ -1,0 +1,28 @@
+# Grupos temporales para verificar el tablero corregido · 05-oct-2026 (salida de Azure CLI; se omiten el ID de
+# suscripción y una advertencia de urllib3 sobre LibreSSL que el CLI imprime en cada comando)
+#
+# Para qué: comprobar en el portal que el workbook corregido (infra/workbook.json) muestra bien los indicadores, con
+# datos sintéticos (datatable), sin volver a desplegar el laboratorio. Capturas 11 y 12 (primer grupo) y 13 (segundo).
+
+## Segundo grupo (indicador "Según el log de IIS")
+$ az group create -n rg-prueba-workbook-temporal2 -l eastus2   (2026-10-05 11:48 hora Colombia)
+Succeeded
+
+$ az group delete -n rg-prueba-workbook-temporal2 --yes   (inicio 16:51:26Z)
+fin 16:52:34Z
+
+## Verificación (16:52Z)
+$ az group exists -n rg-prueba-workbook-temporal2
+false
+
+$ az group exists -n rg-prueba-workbook-temporal
+false
+
+$ az monitor log-analytics workspace list-deleted-workspaces --query "[].{nombre:name, grupo:resourceGroup}" -o table
+Nombre                Grupo
+--------------------  ----------------------------
+law-prueba-workbook   rg-prueba-workbook-temporal
+law-prueba-workbook2  rg-prueba-workbook-temporal2
+
+# Lectura: ninguno de los dos grupos existe. Sus workspaces quedan en soft-delete y Azure los elimina por completo a
+# los 14 días; no tenían datos reales (los tableros de prueba usaban datatable).

@@ -1,0 +1,20 @@
+# datos del kit: se mantienen fuera del repo
+kit_prueba_portalpagos/
+*.zip
+# entornos y caches
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+# secretos
+.env
+*.pfx
+*.pem
+local.settings.json
+terraform.tfstate*
+.terraform/
+# intermedios
+reto1-diagnostico/salidas/POSTMORTEM.html
+
+# sistema operativo
+.DS_Store

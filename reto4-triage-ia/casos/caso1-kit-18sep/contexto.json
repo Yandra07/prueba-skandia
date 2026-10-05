@@ -1,0 +1,276 @@
+{
+ "alerta": {
+  "id": "7f1c2b3a-0000-0000-0000-000000000001",
+  "regla": "PortalPagos-5xx-alto",
+  "severidad": "Sev1",
+  "condicion": "Fired",
+  "disparo_utc": "2026-09-18T19:00:00.000Z",
+  "descripcion": "Tasa de 5xx > 5% en 5 minutos",
+  "objetivo": "web-pagos-01",
+  "consulta": "W3CIISLog | where csUriStem !~ '/health' | summarize total=count(), err=countif(scStatus >= 500) by bin(TimeGenerated,5m) | extend pct=100.0*err/total",
+  "valor": 23.4,
+  "umbral": "5"
+ },
+ "ventana": {
+  "desde": "2026-09-18 13:00",
+  "hasta": "2026-09-18 14:02",
+  "zona": "America/Bogota",
+  "fuente": "kit"
+ },
+ "evidencias": [
+  {
+   "id": "E1",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-18 13:00:00",
+   "texto": "IIS 13:00-13:10: 337 solicitudes de usuario, 0 con 5xx (0.0 %), latencia p95 2639 ms",
+   "senales": [],
+   "ts_fin": "2026-09-18 13:10:00"
+  },
+  {
+   "id": "E2",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-18 13:10:00",
+   "texto": "IIS 13:10-13:20: 341 solicitudes de usuario, 0 con 5xx (0.0 %), latencia p95 3176 ms",
+   "senales": [],
+   "ts_fin": "2026-09-18 13:20:00"
+  },
+  {
+   "id": "E3",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-18 13:20:00",
+   "texto": "IIS 13:20-13:30: 351 solicitudes de usuario, 40 con 5xx (11.4 %), latencia p95 23441 ms",
+   "senales": [],
+   "ts_fin": "2026-09-18 13:30:00"
+  },
+  {
+   "id": "E4",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-18 13:30:00",
+   "texto": "IIS 13:30-13:40: 364 solicitudes de usuario, 60 con 5xx (16.5 %), latencia p95 24625 ms",
+   "senales": [],
+   "ts_fin": "2026-09-18 13:40:00"
+  },
+  {
+   "id": "E5",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-18 13:40:00",
+   "texto": "IIS 13:40-13:50: 343 solicitudes de usuario, 60 con 5xx (17.5 %), latencia p95 25745 ms",
+   "senales": [],
+   "ts_fin": "2026-09-18 13:50:00"
+  },
+  {
+   "id": "E6",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-18 13:50:00",
+   "texto": "IIS 13:50-14:00: 372 solicitudes de usuario, 56 con 5xx (15.1 %), latencia p95 22888 ms",
+   "senales": [],
+   "ts_fin": "2026-09-18 14:00:00"
+  },
+  {
+   "id": "E7",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-18 14:00:00",
+   "texto": "IIS 14:00-14:10: 90 solicitudes de usuario, 14 con 5xx (15.6 %), latencia p95 23097 ms",
+   "senales": [],
+   "ts_fin": "2026-09-18 14:10:00"
+  },
+  {
+   "id": "E8",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-18 14:02:00",
+   "texto": "IIS en la ventana: 75 errores 5xx en /api/pagos/confirmar",
+   "senales": [],
+   "ts_fin": "2026-09-18 14:02:00"
+  },
+  {
+   "id": "E9",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-18 14:02:00",
+   "texto": "IIS en la ventana: 66 errores 5xx en /api/pagos/iniciar",
+   "senales": [],
+   "ts_fin": "2026-09-18 14:02:00"
+  },
+  {
+   "id": "E10",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-18 14:02:00",
+   "texto": "IIS en la ventana: 31 errores 5xx en /api/movimientos",
+   "senales": [],
+   "ts_fin": "2026-09-18 14:02:00"
+  },
+  {
+   "id": "E11",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-18 14:02:00",
+   "texto": "IIS en la ventana: 31 errores 5xx en /api/saldos",
+   "senales": [],
+   "ts_fin": "2026-09-18 14:02:00"
+  },
+  {
+   "id": "E12",
+   "fuente": "iis-linea",
+   "ts": "2026-09-18 13:23:08",
+   "texto": "u_ex260918.log:24018 POST /api/pagos/iniciar 500 time-taken=24651 ms",
+   "senales": [],
+   "ts_fin": "2026-09-18 13:23:08"
+  },
+  {
+   "id": "E13",
+   "fuente": "iis-linea",
+   "ts": "2026-09-18 13:23:28",
+   "texto": "u_ex260918.log:24033 GET /api/movimientos 500 time-taken=22728 ms",
+   "senales": [],
+   "ts_fin": "2026-09-18 13:23:28"
+  },
+  {
+   "id": "E14",
+   "fuente": "iis-linea",
+   "ts": "2026-09-18 13:23:45",
+   "texto": "u_ex260918.log:24043 POST /api/pagos/confirmar 500 time-taken=14212 ms",
+   "senales": [],
+   "ts_fin": "2026-09-18 13:23:45"
+  },
+  {
+   "id": "E15",
+   "fuente": "iis-agregado",
+   "ts": "2026-09-18 14:02:00",
+   "texto": "Sonda NOC /health en la ventana: 124 respuestas, 124 con 200",
+   "senales": [],
+   "ts_fin": "2026-09-18 14:02:00"
+  },
+  {
+   "id": "E16",
+   "fuente": "evento",
+   "ts": "2026-09-15 22:03:00",
+   "texto": "[AndinaDeploy 1000] Despliegue completado: PortalPagos v2.3.1 (antes v2.3.0). Usuario: ANDINA\\svc_deploy. Cambios: nuevo flujo de confirmacion de pagos, cache de sesiones de pago, appsettings Serilog:MinimumLevel=Debug.",
+   "senales": [
+    "despliegue_reciente"
+   ],
+   "ts_fin": "2026-09-15 22:03:00"
+  },
+  {
+   "id": "E17",
+   "fuente": "evento",
+   "ts": "2026-09-16 11:30:02",
+   "texto": "[AndinaDeploy 1001] Cambio de infraestructura: se retira la unidad D: del servidor (migracion de almacenamiento). Logs IIS ahora en C:\\inetpub\\logs\\LogFiles.",
+   "senales": [
+    "despliegue_reciente"
+   ],
+   "ts_fin": "2026-09-16 11:30:02"
+  },
+  {
+   "id": "E18",
+   "fuente": "evento",
+   "ts": "2026-09-18 13:24:19",
+   "texto": "[ASP.NET 4.0.30319.0 1309 Warning] x28 desde 13:24:19 hasta 14:01:04. Ejemplo: Event code: 3005 Event message: An unhandled exception has occurred. Exception type: OutOfMemoryException Exception message: Exception of type 'System.OutOfMemoryException' was thrown. Request path: /api/pagos/confirmar Stack: at Andina.Pago",
+   "senales": [
+    "oom"
+   ],
+   "ts_fin": "2026-09-18 14:01:04"
+  },
+  {
+   "id": "E19",
+   "fuente": "evento",
+   "ts": "2026-09-18 13:33:03",
+   "texto": "[Schannel 36887 Error] x1 desde 13:33:03 hasta 13:33:03. Ejemplo: A fatal alert was received from the remote endpoint. The TLS protocol defined fatal alert code is 46.",
+   "senales": [],
+   "ts_fin": "2026-09-18 13:33:03"
+  },
+  {
+   "id": "E20",
+   "fuente": "evento",
+   "ts": "2026-09-18 13:33:22",
+   "texto": "[DistributedCOM 10016 Warning] x2 en la ventana (aviso de permisos COM)",
+   "senales": [],
+   "ts_fin": "2026-09-18 13:33:22"
+  },
+  {
+   "id": "E21",
+   "fuente": "perfmon",
+   "ts": "2026-09-18 10:00:00",
+   "texto": "Perfmon 10:00: memoria privada de w3wp 737 MB, memoria disponible 5513 MB, CPU 52 %, 25.6 % libre en C:",
+   "senales": [],
+   "ts_fin": "2026-09-18 10:00:00"
+  },
+  {
+   "id": "E22",
+   "fuente": "perfmon",
+   "ts": "2026-09-18 10:30:00",
+   "texto": "Perfmon 10:30: memoria privada de w3wp 860 MB, memoria disponible 5415 MB, CPU 55 %, 25.1 % libre en C:",
+   "senales": [
+    "memoria_alta"
+   ],
+   "ts_fin": "2026-09-18 10:30:00"
+  },
+  {
+   "id": "E23",
+   "fuente": "perfmon",
+   "ts": "2026-09-18 11:00:00",
+   "texto": "Perfmon 11:00: memoria privada de w3wp 980 MB, memoria disponible 5306 MB, CPU 45 %, 24.6 % libre en C:",
+   "senales": [
+    "memoria_alta"
+   ],
+   "ts_fin": "2026-09-18 11:00:00"
+  },
+  {
+   "id": "E24",
+   "fuente": "perfmon",
+   "ts": "2026-09-18 11:30:00",
+   "texto": "Perfmon 11:30: memoria privada de w3wp 1089 MB, memoria disponible 5097 MB, CPU 44 %, 24.1 % libre en C:",
+   "senales": [
+    "memoria_alta"
+   ],
+   "ts_fin": "2026-09-18 11:30:00"
+  },
+  {
+   "id": "E25",
+   "fuente": "perfmon",
+   "ts": "2026-09-18 12:00:00",
+   "texto": "Perfmon 12:00: memoria privada de w3wp 1191 MB, memoria disponible 5043 MB, CPU 29 %, 23.7 % libre en C:",
+   "senales": [
+    "memoria_alta"
+   ],
+   "ts_fin": "2026-09-18 12:00:00"
+  },
+  {
+   "id": "E26",
+   "fuente": "perfmon",
+   "ts": "2026-09-18 12:30:00",
+   "texto": "Perfmon 12:30: memoria privada de w3wp 1267 MB, memoria disponible 5017 MB, CPU 32 %, 23.4 % libre en C:",
+   "senales": [
+    "memoria_alta"
+   ],
+   "ts_fin": "2026-09-18 12:30:00"
+  },
+  {
+   "id": "E27",
+   "fuente": "perfmon",
+   "ts": "2026-09-18 13:00:00",
+   "texto": "Perfmon 13:00: memoria privada de w3wp 1317 MB, memoria disponible 4863 MB, CPU 50 %, 23.1 % libre en C:",
+   "senales": [
+    "memoria_alta"
+   ],
+   "ts_fin": "2026-09-18 13:00:00"
+  },
+  {
+   "id": "E28",
+   "fuente": "perfmon",
+   "ts": "2026-09-18 13:30:00",
+   "texto": "Perfmon 13:30: memoria privada de w3wp 1372 MB, memoria disponible 4895 MB, CPU 56 %, 22.9 % libre en C:",
+   "senales": [
+    "memoria_alta"
+   ],
+   "ts_fin": "2026-09-18 13:30:00"
+  },
+  {
+   "id": "E29",
+   "fuente": "perfmon",
+   "ts": "2026-09-18 14:00:00",
+   "texto": "Perfmon 14:00: memoria privada de w3wp 1434 MB, memoria disponible 4757 MB, CPU 59 %, 22.6 % libre en C:",
+   "senales": [
+    "memoria_alta"
+   ],
+   "ts_fin": "2026-09-18 14:00:00"
+  }
+ ]
+}

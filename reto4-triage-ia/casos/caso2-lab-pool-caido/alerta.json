@@ -1,0 +1,21 @@
+{
+  "schemaId": "azureMonitorCommonAlertSchema",
+  "data": {
+    "essentials": {
+      "alertId": "/subscriptions/<sub>/resourcegroups/rg-portalpagos-lab/providers/microsoft.compute/virtualmachines/web-pagos-01/providers/Microsoft.AlertsManagement/alerts/c797b5a4-e006-f8d6-1d7e-b8f3cde10004",
+      "alertRule": "PortalPagos-Sitio-NoDisponible",
+      "severity": "Sev1",
+      "signalType": "Log",
+      "monitorCondition": "Fired",
+      "monitoringService": "Log Alerts V2",
+      "alertTargetIDs": [
+        "/subscriptions/<sub>/resourcegroups/rg-portalpagos-lab/providers/microsoft.compute/virtualmachines/web-pagos-01"
+      ],
+      "firedDateTime": "2026-10-02T03:24:01.5551916Z",
+      "description": "",
+      "essentialsVersion": "1.0",
+      "alertContextVersion": "1.0"
+    },
+    "alertContext": {}
+  }
+}

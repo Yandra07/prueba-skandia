@@ -1,0 +1,108 @@
+      hora_colombia                                                                             hito                      que_vio_el_usuario                                              evidencia
+2026-09-18 02:00:01                   Mantenimiento nocturno: iisreset (el pool arranca con ~300 MB)                                  Normal                           eventos_WEB-PAGOS-01.csv:271
+2026-09-18 11:10:00           Memoria del pool supera 1.000 MB (3,3x lo normal antes del despliegue)                Normal, aún sin síntomas perfmon_WEB-PAGOS-01.csv (Process(w3wp)\Private Bytes)
+2026-09-18 11:45:00          Inicio de la degradación: p95 transaccional > 2x la línea base (450 ms)           Lentitud al consultar y pagar                u_ex260918.log (p95 por ventana 15 min)
+2026-09-18 13:23:08                                                    Primer error 500 a un usuario       'Ha ocurrido un error inesperado'                                   u_ex260918.log:24018
+2026-09-18 13:24:19   Primera OutOfMemoryException en SesionPagoCache.Agregar (/api/pagos/confirmar)      Pagos fallan de forma intermitente                           eventos_WEB-PAGOS-01.csv:304
+2026-09-18 13:34:00                                 Primer ticket: error al confirmar pago (T-10252)                       Usuarios reportan                              tickets_mesa_servicio.csv
+2026-09-18 14:22:12                        Primer cierre del proceso w3wp por memoria (crash + dump)             Errores y sesiones perdidas                           eventos_WEB-PAGOS-01.csv:347
+2026-09-18 14:38:00                          Primer 503 'Service Unavailable' (HTTP.sys, AppOffline) 'Service Unavailable' en todo el portal                                         httperr1.log:5
+2026-09-18 14:38:05           IIS deshabilita el pool tras 5 caídas seguidas (Rapid-Fail Protection)                             Caída total                           eventos_WEB-PAGOS-01.csv:366
+2026-09-18 14:42:00                                             Ticket crítico T-10255: portal caído                       Usuarios reportan                              tickets_mesa_servicio.csv
+2026-09-18 15:04:00 Primera respuesta exitosa tras el reinicio manual del pool (15:04 según T-10255)               Portal vuelve a responder                                   u_ex260918.log:27229
+2026-09-18 15:30:00                                    Latencia y errores vuelven a valores normales                         Servicio normal                                         u_ex260918.log
+       dia  solicitudes_usuario  fallidas  disp_solicitudes_pct  disp_minutos_errores_pct  disp_minutos_errores_y_latencia_pct  minutos_malos  noc_health_solo_iis_pct  noc_health_con_httperr_pct
+2026-09-14                23014        30                 99.87                     99.44                                99.44              8                    100.0                      100.00
+2026-09-15                21588        21                 99.90                     99.58                                99.58              6                    100.0                      100.00
+2026-09-16                22897        16                 99.93                     99.58                                99.58              6                    100.0                      100.00
+2026-09-17                25477        26                 99.90                     99.79                                99.79              3                    100.0                      100.00
+2026-09-18                35933      1985                 94.48                     92.78                                92.50            108                    100.0                       98.19
+2026-09-19                10152         5                 99.95                     99.65                                99.65              5                    100.0                      100.00
+2026-09-20                 6511         3                 99.95                     99.79                                99.79              3                    100.0                      100.00
+{
+ "incidente": {
+  "linea_base_p95_ms": 450.0,
+  "inicio_degradacion": "2026-09-18 11:45:00",
+  "primer_error": "2026-09-18 13:23:08",
+  "minutos_degradacion_a_primer_error": 98.133,
+  "caida_total_inicio": "2026-09-18 14:38:00",
+  "caida_total_fin": "2026-09-18 15:03:59",
+  "caida_total_min": 26.0,
+  "impacto_desde_primer_error_min": 100.867,
+  "crashes_w3wp": 5,
+  "oom_eventos_aspnet": 40,
+  "errores_500_usuario": 463,
+  "errores_500_fondo_semana_movimientos": 129,
+  "errores_500_confirmar_iniciar": 275,
+  "rechazos_503_usuario": 1489,
+  "rechazos_503_pagos": 229,
+  "health_503_en_httperr": 52,
+  "health_status_durante_errores_500": {
+   "200": 149
+  },
+  "minutos_primer_error_a_primer_ticket": 10.867,
+  "win32_64_cliente_abandona": 160,
+  "solicitudes_fallidas_incidente": 1952,
+  "intentos_pago_fallidos_incidente": 504,
+  "pagos_intentos_antes_caida_total": 674,
+  "pagos_fallidos_antes_caida_total": 275,
+  "pct_pagos_fallidos_antes_caida_total": 40.801,
+  "pagos_intentos_incidente": 903,
+  "pagos_fallidos_incidente": 504,
+  "pct_pagos_fallidos_incidente": 55.814,
+  "errores_500_movimientos_semana_total": 192,
+  "ips_distintas_con_500": 463,
+  "pagos_confirmados_ok_durante_incidente": 217,
+  "pagos_confirmar_intentos_durante_incidente": 358,
+  "pagos_confirmados_ok_2h_previas": 588,
+  "pagos_confirmar_intentos_2h_previas": 588,
+  "pagos_confirmados_2h_tras_recuperacion": 694,
+  "pagos_confirmados_misma_franja_promedio_lun_jue": 297.0
+ },
+ "disp": {
+  "disp_solicitudes_pct": 98.567,
+  "disp_minutos_errores_pct": 98.661,
+  "disp_minutos_errores_y_latencia_pct": 98.621,
+  "minutos_malos_semana": 139,
+  "noc_health_con_httperr_pct": 99.742,
+  "hueco_nocturno_iisreset_s_promedio": 50.143,
+  "hueco_nocturno_iisreset_s": [
+   46.0,
+   60.0,
+   50.0,
+   45.0,
+   42.0,
+   48.0,
+   60.0
+  ]
+ },
+ "senales": {
+  "w3wp_max_previo_mb": 320.286,
+  "primer_cruce_2x_memoria": "2026-09-16 12:10:00",
+  "horas_de_anticipacion": 49.219,
+  "primer_p95_15min_sobre_2x_base": "2026-09-17 19:30:00",
+  "factor_p95_noche_vs_base_por_dia": {
+   "2026-09-14": 1.0,
+   "2026-09-15": 1.02,
+   "2026-09-16": 1.3,
+   "2026-09-17": 2.29,
+   "2026-09-18": 1.09,
+   "2026-09-19": 1.03,
+   "2026-09-20": 0.95
+  },
+  "w3wp_max_antes_reset_18sep_mb": 1215.723,
+  "ram_libre_min_mb_antes_primer_crash": 4723.0,
+  "dcom_10016_semana": 261,
+  "notificaciones_arranques_semana": 32,
+  "notificaciones_arranques_a_las_02h": 0,
+  "c_libre_aumento_0155_0210_mb": {
+   "2026-09-14": 26.0,
+   "2026-09-15": 1620.0,
+   "2026-09-16": 0.0,
+   "2026-09-17": 0.0,
+   "2026-09-18": 0.0,
+   "2026-09-19": 0.0,
+   "2026-09-20": 0.0
+  }
+ }
+}

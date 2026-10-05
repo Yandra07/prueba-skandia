@@ -1,0 +1,8 @@
+PESTER | PowerShell 5.1.20348.5622 | Microsoft Windows Server 2022 Datacenter | Pester 5.7.1: 38 ok, 0 fallidas, 0 sin correr (de 38)
+MANTENIMIENTO (sin Servicio Notificaciones: no existe en el laboratorio) | -WhatIf=0 | real=0 | parametro invalido=1
+  2026-10-04T21:08:14.253-05:00 INFO pool: Pool 'PortalPagosPool' Started
+  2026-10-04T21:08:14.269-05:00 INFO disco-final: C:\: 55.97 % libre (16877 MB)
+  2026-10-04T21:08:14.300-05:00 INFO fin: Fin de mantenimiento: codigo 0
+TAREA | \Andina\MantenimientoPortalPagos | estado=Ready | usuario=SYSTEM | trigger=2026-10-02T02:15:00-05:00
+POOL | privateMemory=1000000 KB | schedule=02:00:00 | time=00:00:00
+EVENTOS AndinaMantenimiento: 1000/Information, 1003/Error, 1003/Error

@@ -1,0 +1,49 @@
+{
+  "regresiones": {
+    "antes_v2.3.1": {
+      "conf": {
+        "mb_por_unidad": -0.001,
+        "r2": 0.018
+      },
+      "ini": {
+        "mb_por_unidad": -0.001,
+        "r2": 0.017
+      },
+      "req": {
+        "mb_por_unidad": -0.0,
+        "r2": 0.018
+      }
+    },
+    "despues_v2.3.1": {
+      "conf": {
+        "mb_por_unidad": 0.496,
+        "r2": 0.999
+      },
+      "ini": {
+        "mb_por_unidad": 0.439,
+        "r2": 0.99
+      },
+      "req": {
+        "mb_por_unidad": 0.039,
+        "r2": 0.956
+      }
+    }
+  },
+  "mb_por_pago_confirmado": 0.496,
+  "umbral_oom_observado_mb": 1478.484,
+  "memoria_tras_reset_mb": 304.073,
+  "capacidad_pagos_entre_reinicios": 2367.395,
+  "pagos_confirmados_18sep_hasta_primer_error": 2126,
+  "pagos_confirmados_por_dia_lun_jue": {
+    "2026-09-14": 1601,
+    "2026-09-15": 1539,
+    "2026-09-16": 1597,
+    "2026-09-17": 1805
+  },
+  "pagos_confirmados_18sep": 3794,
+  "factor_pagos_18sep_vs_promedio_lun_jue": 2.32,
+  "factor_pagos_18sep_vs_max_lun_jue": 2.102,
+  "uso_capacidad_dia_normal_pct": 69.084,
+  "dias_hasta_oom_sin_reinicio_nocturno": 1.448,
+  "nota": "Dentro de cada vida del proceso w3wp (entre reinicios), memoria ~ base + b * pagos acumulados. Antes de v2.3.1 la pendiente es ~0 (memoria plana); después, cada pago deja memoria retenida."
+}

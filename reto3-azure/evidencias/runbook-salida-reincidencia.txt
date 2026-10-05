@@ -1,0 +1,5 @@
+{"ts":"2026-10-02T03:29:40.3650036Z","runbook":"Restaurar-PoolIIS","decision":"Recibida","detalle":"Alerta PortalPagos-Sitio-NoDisponible (Fired)","datos":{"alerta":{"AlertId":"/subscriptions/<sub>/providers/Microsoft.AlertsManagement/alerts/a64b3bae-b115-68b4-b681-22ba038d0004","Regla":"PortalPagos-Sitio-NoDisponible","Severidad":"Sev1","Condicion":"Fired","Disparo":"2026-10-02T03:29:02.8930557Z","VmId":"/subscriptions/<sub>/resourcegroups/rg-portalpagos-lab/providers/microsoft.compute/virtualmachines/web-pagos-01"}}}
+
+{"ts":"2026-10-02T03:29:43.8298209Z","runbook":"Restaurar-PoolIIS","decision":"Escalar","detalle":"Reincidencia: el pool volviÃ³ a caer 5 min despuÃ©s de la Ãºltima remediaciÃ³n","datos":{}}
+
+

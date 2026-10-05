@@ -1,0 +1,33 @@
+# Eliminación del laboratorio · 04-oct-2026 (salida de Azure CLI copiada tal cual; ID de suscripción omitido)
+
+## Eliminación (21:13–21:16 hora Colombia = 02:13–02:16Z)
+$ az monitor log-analytics workspace delete -g rg-portalpagos-lab -n law-portalpagos --force --yes
+$ az group delete -n rg-portalpagos-lab --yes
+inicio 02:13:50Z
+workspace eliminado
+fin 02:16:39Z
+
+$ az group exists -n rg-portalpagos-lab
+false
+
+## Verificación posterior
+== grupos con la etiqueta del proyecto            (az group list --query "[?tags.proyecto=='prueba-tecnica-observabilidad'].name")
+(vacío)
+== recursos con la etiqueta                       (az resource list --tag proyecto=prueba-tecnica-observabilidad)
+(vacío)
+== workspaces de Log Analytics en soft-delete    (az monitor log-analytics workspace list-deleted-workspaces)
+(vacío)
+== Azure OpenAI en soft-delete                    (az cognitiveservices account list-deleted)
+Nombre                          Ubicacion
+------------------------------  -----------
+aoai-portalpagos-nwyw35xuh4kvs  eastus2
+
+## Purga de Azure OpenAI (después, el mismo día, para poder volver a desplegar con el mismo nombre)
+$ az cognitiveservices account purge -l eastus2 -g rg-portalpagos-lab -n aoai-portalpagos-nwyw35xuh4kvs
+$ az cognitiveservices account list-deleted --query "[].name" -o tsv
+(vacío = purgado)
+
+# Resultado: no queda ningún recurso del laboratorio ni en soft-delete. El presupuesto tenía ámbito de grupo de
+# recursos y se eliminó con él; antes, su configuración (US$ 15 mensuales y alertas al 50 %, 80 % y 100 %) quedó en
+# capturas/02-presupuesto-alertas.jpg. El gasto evaluado ese día era US$ 4,77 según el detalle del presupuesto en el portal
+# (la captura muestra la parte de las alertas, no ese valor).

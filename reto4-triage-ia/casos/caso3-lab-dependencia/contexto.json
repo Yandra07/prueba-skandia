@@ -1,0 +1,387 @@
+{
+ "alerta": {
+  "id": "b15a912e-b4c9-e940-d578-4eade9290004",
+  "regla": "PortalPagos-Sitio-NoDisponible",
+  "severidad": "Sev1",
+  "condicion": "Fired",
+  "disparo_utc": "2026-10-02T03:07:04.5188885Z",
+  "descripcion": "",
+  "objetivo": "web-pagos-01",
+  "consulta": "",
+  "valor": null,
+  "umbral": null
+ },
+ "ventana": {
+  "desde": "2026-10-02T02:37Z",
+  "hasta": "2026-10-02T03:07Z",
+  "zona": "UTC",
+  "fuente": "log-analytics"
+ },
+ "evidencias": [
+  {
+   "id": "E1",
+   "fuente": "iis-agregado",
+   "ts": "2026-10-01 21:35:00",
+   "texto": "IIS 21:35 (5 min): 157 solicitudes, 0 con 5xx, latencia p95 202 ms",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:40:00"
+  },
+  {
+   "id": "E2",
+   "fuente": "iis-agregado",
+   "ts": "2026-10-01 21:40:00",
+   "texto": "IIS 21:40 (5 min): 103 solicitudes, 0 con 5xx, latencia p95 468 ms",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:45:00"
+  },
+  {
+   "id": "E3",
+   "fuente": "iis-agregado",
+   "ts": "2026-10-01 21:45:00",
+   "texto": "IIS 21:45 (5 min): 251 solicitudes, 0 con 5xx, latencia p95 248 ms",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:50:00"
+  },
+  {
+   "id": "E4",
+   "fuente": "iis-agregado",
+   "ts": "2026-10-01 21:50:00",
+   "texto": "IIS 21:50 (5 min): 264 solicitudes, 0 con 5xx, latencia p95 186 ms",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:55:00"
+  },
+  {
+   "id": "E5",
+   "fuente": "iis-agregado",
+   "ts": "2026-10-01 21:55:00",
+   "texto": "IIS 21:55 (5 min): 268 solicitudes, 0 con 5xx, latencia p95 205 ms",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:00:00"
+  },
+  {
+   "id": "E6",
+   "fuente": "iis-agregado",
+   "ts": "2026-10-01 22:00:00",
+   "texto": "IIS 22:00 (5 min): 262 solicitudes, 0 con 5xx, latencia p95 202 ms",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:05:00"
+  },
+  {
+   "id": "E7",
+   "fuente": "iis-agregado",
+   "ts": "2026-10-01 22:05:00",
+   "texto": "IIS 22:05 (5 min): 106 solicitudes, 0 con 5xx, latencia p95 186 ms",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:10:00"
+  },
+  {
+   "id": "E8",
+   "fuente": "sonda",
+   "ts": "2026-10-01 21:35:00",
+   "texto": "Sonda sintética (5 min): 9 OK, 0 fallas",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:40:00"
+  },
+  {
+   "id": "E9",
+   "fuente": "sonda",
+   "ts": "2026-10-01 21:40:00",
+   "texto": "Sonda sintética (5 min): 6 OK, 18 fallas. Ejemplo de falla: {\"status\":503,\"url\":\"http://localhost/health.aspx\",\"motivo\":\"\",\"ms\":119}",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:45:00"
+  },
+  {
+   "id": "E10",
+   "fuente": "sonda",
+   "ts": "2026-10-01 21:45:00",
+   "texto": "Sonda sintética (5 min): 15 OK, 0 fallas",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:50:00"
+  },
+  {
+   "id": "E11",
+   "fuente": "sonda",
+   "ts": "2026-10-01 21:50:00",
+   "texto": "Sonda sintética (5 min): 15 OK, 0 fallas",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:55:00"
+  },
+  {
+   "id": "E12",
+   "fuente": "sonda",
+   "ts": "2026-10-01 21:55:00",
+   "texto": "Sonda sintética (5 min): 15 OK, 0 fallas",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:00:00"
+  },
+  {
+   "id": "E13",
+   "fuente": "sonda",
+   "ts": "2026-10-01 22:00:00",
+   "texto": "Sonda sintética (5 min): 15 OK, 0 fallas",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:05:00"
+  },
+  {
+   "id": "E14",
+   "fuente": "sonda",
+   "ts": "2026-10-01 22:05:00",
+   "texto": "Sonda sintética (5 min): 3 OK, 6 fallas. Ejemplo de falla: {\"status\":503,\"url\":\"http://localhost/health.aspx\",\"motivo\":\"\",\"ms\":18}",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:10:00"
+  },
+  {
+   "id": "E15",
+   "fuente": "evento",
+   "ts": "2026-10-01 21:40:10",
+   "texto": "[ASP.NET 4.0.30319.0 1325 Error] x5 desde 21:40:10 hasta 21:40:36. Ejemplo: An unhandled exception occurred and the process was terminated. Application ID: /LM/W3SVC/2/ROOT Process ID: 2344 Exception: System.OutOfMemoryException Message: Crash provocado (Reto 3) StackTrace: at ASP.fallar_aspx.<Page_Load>b__0(Object _) ",
+   "senales": [
+    "oom"
+   ],
+   "ts_fin": "2026-10-01 21:40:36"
+  },
+  {
+   "id": "E16",
+   "fuente": "evento",
+   "ts": "2026-10-01 21:40:10",
+   "texto": "[.NET Runtime 1026 Error] x5 desde 21:40:10 hasta 21:40:36. Ejemplo: Application: w3wp.exe Framework Version: v4.0.30319 Description: The process was terminated due to an unhandled exception. Exception Info: System.OutOfMemoryException at ASP.fallar_aspx.<Page_Load>b__0(System.Object) at System.Threading.QueueUserWorkI",
+   "senales": [
+    "crash_w3wp",
+    "oom"
+   ],
+   "ts_fin": "2026-10-01 21:40:36"
+  },
+  {
+   "id": "E17",
+   "fuente": "evento",
+   "ts": "2026-10-01 21:40:10",
+   "texto": "[Application Error 1000 Error] x5 desde 21:40:10 hasta 21:40:37. Ejemplo: Faulting application name: w3wp.exe, version: 10.0.20348.1, time stamp: 0x7feb3edd Faulting module name: KERNELBASE.dll, version: 10.0.20348.5622, time stamp: 0xf195b785 Exception code: 0xe0434352 Fault offset: 0x00139a72 Faulting process id: 0x9",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:40:37"
+  },
+  {
+   "id": "E18",
+   "fuente": "evento",
+   "ts": "2026-10-01 21:40:17",
+   "texto": "[Microsoft-Windows-WAS 5011 Warning] x5 desde 21:40:17 hasta 21:40:39. Ejemplo: A process serving application pool 'PortalPagosPool' suffered a fatal communication error with the Windows Process Activation Service. The process id was '2344'. The data field contains the error number.",
+   "senales": [
+    "crash_w3wp"
+   ],
+   "ts_fin": "2026-10-01 21:40:39"
+  },
+  {
+   "id": "E19",
+   "fuente": "evento",
+   "ts": "2026-10-01 21:40:39",
+   "texto": "[Microsoft-Windows-WAS 5002 Error] x2 desde 21:40:39 hasta 21:40:39. Ejemplo: Application pool 'PortalPagosPool' is being automatically disabled due to a series of failures in the process(es) serving that application pool.",
+   "senales": [
+    "pool_caido"
+   ],
+   "ts_fin": "2026-10-01 21:40:39"
+  },
+  {
+   "id": "E20",
+   "fuente": "evento",
+   "ts": "2026-10-01 21:43:40",
+   "texto": "[AndinaRemediacion 3000 Warning] x2 desde 21:43:40 hasta 21:43:40. Ejemplo: {\"alertId\":\"19a3e182-f680-e828-8c20-9f114d590004\",\"disparo\":\"2026-10-02T02:42:05.2005492Z\",\"estadoAntes\":\"Stopped\",\"healthAntes\":503,\"crashes15m\":5,\"inicio\":\"2026-10-01T21:43:40.1773852-05:00\"}",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:43:40"
+  },
+  {
+   "id": "E21",
+   "fuente": "evento",
+   "ts": "2026-10-01 21:43:45",
+   "texto": "[AndinaRemediacion 3001 Information] x1 desde 21:43:45 hasta 21:43:45. Ejemplo: {\"alertId\":\"19a3e182-f680-e828-8c20-9f114d590004\",\"disparo\":\"2026-10-02T02:42:05.2005492Z\",\"estadoAntes\":\"Stopped\",\"healthAntes\":503,\"crashes15m\":5,\"inicio\":\"2026-10-01T21:43:40.1773852-05:00\",\"estadoDespues\":\"Started\",\"healthDespues\":200,\"",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:43:45"
+  },
+  {
+   "id": "E22",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:35:00",
+   "texto": "Disco C: a las 21:35: 56.2 % libre",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:35:00"
+  },
+  {
+   "id": "E23",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:35:00",
+   "texto": "Estado del pool PortalPagosPool a las 21:35: 3 (3 = Running)",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:35:00"
+  },
+  {
+   "id": "E24",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:35:00",
+   "texto": "Memoria privada de w3wp a las 21:35: 84 MB",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:35:00"
+  },
+  {
+   "id": "E25",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:40:00",
+   "texto": "Disco C: a las 21:40: 55.8 % libre",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:40:00"
+  },
+  {
+   "id": "E26",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:40:00",
+   "texto": "Memoria privada de w3wp a las 21:40: 49 MB",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:40:00"
+  },
+  {
+   "id": "E27",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:40:00",
+   "texto": "Estado del pool PortalPagosPool a las 21:40: 5 (3 = Running)",
+   "senales": [
+    "pool_caido"
+   ],
+   "ts_fin": "2026-10-01 21:40:00"
+  },
+  {
+   "id": "E28",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:45:00",
+   "texto": "Disco C: a las 21:45: 55.8 % libre",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:45:00"
+  },
+  {
+   "id": "E29",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:45:00",
+   "texto": "Memoria privada de w3wp a las 21:45: 53 MB",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:45:00"
+  },
+  {
+   "id": "E30",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:45:00",
+   "texto": "Estado del pool PortalPagosPool a las 21:45: 3 (3 = Running)",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:45:00"
+  },
+  {
+   "id": "E31",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:50:00",
+   "texto": "Memoria privada de w3wp a las 21:50: 57 MB",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:50:00"
+  },
+  {
+   "id": "E32",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:50:00",
+   "texto": "Estado del pool PortalPagosPool a las 21:50: 3 (3 = Running)",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:50:00"
+  },
+  {
+   "id": "E33",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:50:00",
+   "texto": "Disco C: a las 21:50: 55.6 % libre",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:50:00"
+  },
+  {
+   "id": "E34",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:55:00",
+   "texto": "Memoria privada de w3wp a las 21:55: 62 MB",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:55:00"
+  },
+  {
+   "id": "E35",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:55:00",
+   "texto": "Estado del pool PortalPagosPool a las 21:55: 3 (3 = Running)",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:55:00"
+  },
+  {
+   "id": "E36",
+   "fuente": "perf",
+   "ts": "2026-10-01 21:55:00",
+   "texto": "Disco C: a las 21:55: 55.6 % libre",
+   "senales": [],
+   "ts_fin": "2026-10-01 21:55:00"
+  },
+  {
+   "id": "E37",
+   "fuente": "perf",
+   "ts": "2026-10-01 22:00:00",
+   "texto": "Memoria privada de w3wp a las 22:00: 66 MB",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:00:00"
+  },
+  {
+   "id": "E38",
+   "fuente": "perf",
+   "ts": "2026-10-01 22:00:00",
+   "texto": "Disco C: a las 22:00: 55.6 % libre",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:00:00"
+  },
+  {
+   "id": "E39",
+   "fuente": "perf",
+   "ts": "2026-10-01 22:00:00",
+   "texto": "Estado del pool PortalPagosPool a las 22:00: 3 (3 = Running)",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:00:00"
+  },
+  {
+   "id": "E40",
+   "fuente": "perf",
+   "ts": "2026-10-01 22:05:00",
+   "texto": "Disco C: a las 22:05: 55.6 % libre",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:05:00"
+  },
+  {
+   "id": "E41",
+   "fuente": "perf",
+   "ts": "2026-10-01 22:05:00",
+   "texto": "Memoria privada de w3wp a las 22:05: 71 MB",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:05:00"
+  },
+  {
+   "id": "E42",
+   "fuente": "perf",
+   "ts": "2026-10-01 22:05:00",
+   "texto": "Estado del pool PortalPagosPool a las 22:05: 3 (3 = Running)",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:05:00"
+  },
+  {
+   "id": "E43",
+   "fuente": "derivado",
+   "ts": "2026-10-01 22:07:04",
+   "texto": "Derivado (últimos 10 min antes de la alerta): sonda 6 fallas y 27 OK; pool fuera de Running en 0 de 11 muestras; 0 eventos WAS 5002. La sonda falla con el pool en Running: la falla no está en el pool (posible dependencia)",
+   "senales": [
+    "dependencia"
+   ],
+   "ts_fin": "2026-10-01 22:07:04"
+  },
+  {
+   "id": "E44",
+   "fuente": "heartbeat",
+   "ts": "2026-10-01 22:06:46",
+   "texto": "Último heartbeat del agente: 22:06:46",
+   "senales": [],
+   "ts_fin": "2026-10-01 22:06:46"
+  }
+ ]
+}

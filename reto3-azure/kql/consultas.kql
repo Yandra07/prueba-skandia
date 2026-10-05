@@ -1,0 +1,157 @@
+// =====================================================================================
+// Reto 3 · Consultas KQL sobre el Log Analytics workspace (law-portalpagos)
+// Responden, con datos del laboratorio, las preguntas del Reto 1:
+//   disponibilidad real · errores 5xx · latencia p95 · eventos del pool · señales tempranas · MTTD/MTTR
+// Tablas: W3CIISLog (logs IIS vía AMA), Event (visor de eventos), Perf (contadores), Heartbeat, AzureDiagnostics (Automation)
+// Notas:
+//  - TimeGenerated está en UTC; el workbook y las alertas lo muestran en hora local del navegador.
+//  - "Usuario" = todo menos /health.aspx (sonda) y /fallar.aspx (inyección de fallas).
+// =====================================================================================
+
+
+// -------------------------------------------------------------------------------------
+// Q1. Disponibilidad REAL por hora, con 3 definiciones
+//     a) sonda sintética (AndinaSonda 2000/2001): ve los 503 de HTTP.sys aunque IIS no los escriba en W3C
+//     b) solicitudes de usuario con status < 500 (W3C)
+//     c) lo que ve el NOC hoy: /health en el log W3C (sesgado: no registra nada cuando el pool está caído)
+// -------------------------------------------------------------------------------------
+let rango = 24h;
+let sonda = Event
+    | where TimeGenerated > ago(rango) and Source == "AndinaSonda"
+    | summarize ok = countif(EventID == 2000), total = count() by bin(TimeGenerated, 1h)
+    | extend disp_sonda_pct = round(100.0 * ok / total, 2);
+let usuarios = W3CIISLog
+    | where TimeGenerated > ago(rango) and csUriStem !in~ ("/health.aspx", "/fallar.aspx")
+    | summarize total_u = count(), ok_u = countif(toint(scStatus) < 500) by bin(TimeGenerated, 1h)
+    | extend disp_usuarios_pct = round(100.0 * ok_u / total_u, 2);
+let noc = W3CIISLog
+    | where TimeGenerated > ago(rango) and csUriStem =~ "/health.aspx"
+    | summarize disp_noc_w3c_pct = round(100.0 * countif(toint(scStatus) == 200) / count(), 2) by bin(TimeGenerated, 1h);
+sonda
+| join kind=fullouter usuarios on TimeGenerated
+| join kind=fullouter noc on TimeGenerated
+| project Hora = coalesce(TimeGenerated, TimeGenerated1, TimeGenerated2), disp_sonda_pct, disp_usuarios_pct, disp_noc_w3c_pct
+| order by Hora asc;
+
+
+// -------------------------------------------------------------------------------------
+// Q2. Disponibilidad del período (SLI por minutos): un minuto es "malo" si la sonda falló al menos una vez
+// -------------------------------------------------------------------------------------
+Event
+| where TimeGenerated > ago(7d) and Source == "AndinaSonda"
+| summarize fallas = countif(EventID == 2001) by bin(TimeGenerated, 1m)
+| summarize minutos = count(), minutos_malos = countif(fallas > 0)
+| extend disponibilidad_pct = round(100.0 * (minutos - minutos_malos) / minutos, 3);
+
+
+// -------------------------------------------------------------------------------------
+// Q3. Errores 5xx de usuarios: tasa cada 5 min y detalle por endpoint/substatus
+// -------------------------------------------------------------------------------------
+W3CIISLog
+| where TimeGenerated > ago(24h) and csUriStem !in~ ("/health.aspx", "/fallar.aspx")
+| summarize total = count(), errores_5xx = countif(toint(scStatus) >= 500) by bin(TimeGenerated, 5m)
+| extend pct_5xx = round(100.0 * errores_5xx / total, 2)
+| order by TimeGenerated asc;
+
+W3CIISLog
+| where TimeGenerated > ago(24h) and toint(scStatus) >= 500
+| summarize n = count() by csUriStem, scStatus, scSubStatus, scWin32Status
+| order by n desc;
+
+
+// -------------------------------------------------------------------------------------
+// Q4. Latencia p50/p95/p99 de los endpoints transaccionales (ms), cada 5 min
+// -------------------------------------------------------------------------------------
+W3CIISLog
+| where TimeGenerated > ago(24h) and csUriStem in~ ("/", "/default.aspx", "/api/saldos.aspx", "/api/pagos/iniciar.aspx", "/api/pagos/confirmar.aspx")
+| summarize percentiles(TimeTaken, 50, 95, 99), solicitudes = count() by bin(TimeGenerated, 5m)
+| order by TimeGenerated asc;
+
+
+// -------------------------------------------------------------------------------------
+// Q5. Eventos del pool y del proceso (lo que el 18-sep nadie miró)
+//     WAS 5002 pool deshabilitado (Rapid-Fail) · 5011 w3wp terminó · 5117/5186/5079/5080 reciclajes
+//     .NET Runtime 1026 / Application Error 1000 / ASP.NET 1309 excepciones
+// -------------------------------------------------------------------------------------
+Event
+| where TimeGenerated > ago(7d)
+| where (Source == "Microsoft-Windows-WAS") or (Source in (".NET Runtime", "Application Error", "Windows Error Reporting") and RenderedDescription has "w3wp")
+     or (Source startswith "ASP.NET")
+| project TimeGenerated, Source, EventID, EventLevelName, Descripcion = substring(RenderedDescription, 0, 240)
+| order by TimeGenerated desc;
+
+// conteo por hora para ver ráfagas
+Event
+| where TimeGenerated > ago(7d) and Source == "Microsoft-Windows-WAS"
+| summarize n = count() by EventID, bin(TimeGenerated, 1h)
+| order by TimeGenerated asc;
+
+
+// -------------------------------------------------------------------------------------
+// Q6. Señales tempranas: memoria del pool, disco y estado del pool (Perf)
+// -------------------------------------------------------------------------------------
+Perf
+| where TimeGenerated > ago(24h)
+| where (ObjectName == "Process" and CounterName == "Private Bytes" and InstanceName startswith "w3wp")
+     or (ObjectName == "LogicalDisk" and CounterName == "% Free Space" and InstanceName == "C:")
+     or (ObjectName == "APP_POOL_WAS" and CounterName == "Current Application Pool State" and InstanceName == "PortalPagosPool")
+| extend Serie = case(CounterName == "Private Bytes", "w3wp_privado_MB", CounterName == "% Free Space", "disco_C_libre_pct", "estado_pool (3=Running)"),
+         Valor = iff(CounterName == "Private Bytes", CounterValue / 1048576, CounterValue)
+| summarize Valor = max(Valor) by bin(TimeGenerated, 5m), Serie
+| order by TimeGenerated asc;
+
+
+// -------------------------------------------------------------------------------------
+// Q7. Trazabilidad de la auto-remediación: decisión del runbook + lo que hizo en la VM
+// -------------------------------------------------------------------------------------
+let vm = Event
+    | where Source == "AndinaRemediacion"
+    | extend d = parse_json(RenderedDescription)
+    | project TimeGenerated, Origen = "VM", EventID, Resultado = tostring(d.resultado), Detalle = coalesce(tostring(d.motivo), tostring(d.estadoAntes)), AlertId = tostring(d.alertId);
+let runbook = AzureDiagnostics
+    | where ResourceProvider == "MICROSOFT.AUTOMATION" and RunbookName_s == "Restaurar-PoolIIS"
+    | where Category == "JobStreams" and StreamType_s == "Output"
+    | extend d = parse_json(ResultDescription)
+    | project TimeGenerated, Origen = "Runbook", EventID = int(null), Resultado = tostring(d.decision), Detalle = tostring(d.detalle), AlertId = "";
+let jobs = AzureDiagnostics
+    | where ResourceProvider == "MICROSOFT.AUTOMATION" and RunbookName_s == "Restaurar-PoolIIS" and Category == "JobLogs"
+    | project TimeGenerated, Origen = "Job", EventID = int(null), Resultado = ResultType, Detalle = JobId_g, AlertId = "";
+union vm, runbook, jobs
+| order by TimeGenerated desc;
+
+
+// -------------------------------------------------------------------------------------
+// Q8. MTTD y MTTR de cada falla provocada (AndinaPrueba 4000 = T0)
+//     primer_fallo = primera sonda 2001 después de T0       (lo que vería el cliente)
+//     detectado    = firedDateTime de la alerta (viene en el evento de remediación 3000/3003)
+//                    Límite: si el runbook escala ANTES de llegar a la VM (reincidencia, límite de intentos) no hay 3000/3003
+//                    y detectado queda vacío; el disparo de la alerta está entonces en la traza del job (JobStreams).
+//     recuperado   = primera sonda 2000 después de la remediación 3001
+// -------------------------------------------------------------------------------------
+let pruebas = Event
+    | where Source == "AndinaPrueba" and EventID == 4000
+    | extend d = parse_json(RenderedDescription)
+    | project T0 = TimeGenerated, Escenario = tostring(d.escenario)
+    | distinct T0, Escenario          // el mismo evento T0 llegaba duplicado con la primera versión de la DCR
+    | order by T0 asc
+    | extend T0_sig = next(T0, 1, now()), k = 1;
+let s_fallo = Event | where Source == "AndinaSonda" and EventID == 2001 | project tf = TimeGenerated, k = 1;
+let s_ok    = Event | where Source == "AndinaSonda" and EventID == 2000 | project tok = TimeGenerated, k = 1;
+let r_ini   = Event | where Source == "AndinaRemediacion" and EventID in (3000, 3003)
+    | extend d = parse_json(RenderedDescription) | project tr = TimeGenerated, disparo = todatetime(d.disparo), k = 1;
+let r_ok    = Event | where Source == "AndinaRemediacion" and EventID == 3001 | project trok = TimeGenerated, k = 1;
+let falla = pruebas | join kind=inner s_fallo on k | where tf between (T0 .. T0_sig) | summarize primer_fallo = min(tf) by T0;
+let deteccion = pruebas | join kind=inner r_ini on k | where tr between (T0 .. T0_sig) | summarize detectado = min(disparo), runbook_en_vm = min(tr) by T0;
+let remedio = pruebas | join kind=inner r_ok on k | where trok between (T0 .. T0_sig) | summarize remediado = min(trok) by T0;
+let recup = pruebas | join kind=inner falla on T0 | join kind=inner s_ok on k
+    | where tok > primer_fallo and tok < T0_sig | summarize recuperado = min(tok) by T0;
+pruebas
+| join kind=leftouter falla on T0
+| join kind=leftouter deteccion on T0
+| join kind=leftouter remedio on T0
+| join kind=leftouter recup on T0
+| project T0, Escenario, primer_fallo, detectado, runbook_en_vm, remediado, recuperado,
+          MTTD_min = round((detectado - primer_fallo) / 1m, 1),
+          MTTR_min = round((recuperado - primer_fallo) / 1m, 1),
+          Alerta_a_remediacion_seg = round((remediado - detectado) / 1s, 0)
+| order by T0 desc;

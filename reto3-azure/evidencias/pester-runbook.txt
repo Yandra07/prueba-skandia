@@ -1,0 +1,4 @@
+2026-10-01T22:47:13 · PowerShell 7.4.6 · Pester 5.7.1 · runbook: 16 pasaron, 0 fallaron
+2026-10-03T22:42:15 · PowerShell 7.4.6 · Pester 5.7.1 · runbook: 16 pasaron, 0 fallaron, 0 omitidas (con KIT; sin KIT se omite 1)
+2026-10-04T21:11:15 · PowerShell 7.4.6 · Pester 5.7.1 · runbook: 18 pasaron, 0 fallaron, 0 omitidas (con KIT; tras corregir la escalada falsa)
+2026-10-04T22:24:01 · PowerShell 7.4.6 · Pester 5.7.1 · runbook: 18 pasaron, 0 fallaron, 0 omitidas (con KIT; ventana de mantenimiento => verificar)

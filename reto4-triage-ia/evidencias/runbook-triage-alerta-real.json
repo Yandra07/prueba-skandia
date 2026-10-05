@@ -1,0 +1,47 @@
+{
+  "accion": {
+    "ejecutada": false,
+    "justificacion": "El pool PortalPagosPool está deshabilitado (estado distinto de Running) debido a fallos por OutOfMemoryException y cierre del proceso. El runbook RB-01 indica reiniciar el application pool en estas condiciones.",
+    "nombre": "Reiniciar el application pool PortalPagosPool (runbook Restaurar-PoolIIS, con salvaguardas)",
+    "requiere_aprobacion_humana": true,
+    "runbook": "RB-01"
+  },
+  "alerta": {
+    "disparo_utc": "2026-10-02T16:50:02.3675387Z",
+    "id": "b044b1c3-3d18-38d0-2f6d-58dde6430004",
+    "objetivo": "web-pagos-01",
+    "regla": "PortalPagos-Sitio-NoDisponible",
+    "severidad": "Sev1"
+  },
+  "confianza": {
+    "nivel": "baja",
+    "razon": "Validación con avisos: hipótesis 1: 'An unhandled exception occurred and the process was terminated. Exception: Syste' no aparece en E13"
+  },
+  "duracion_ms": 7477,
+  "evidencias_en_contexto": 37,
+  "hipotesis": [
+    {
+      "descripcion": "El application pool PortalPagosPool se deshabilitó automáticamente debido a un fallo por falta de memoria (OutOfMemoryException) que causó el cierre del proceso w3wp.exe.",
+      "evidencia": [
+        "E13",
+        "E14",
+        "E16",
+        "E17",
+        "E34"
+      ],
+      "probabilidad": "alta"
+    }
+  ],
+  "impacto": {
+    "descripcion": "El portal de pagos está caído, afectando a todos los usuarios que intentan acceder al sitio, con múltiples fallas detectadas en la sonda sintética y el pool deshabilitado.",
+    "nivel": "alto"
+  },
+  "modelo": "gpt-4.1-mini-2025-04-14",
+  "origen": "modelo",
+  "problemas": [
+    "cita_no_literal"
+  ],
+  "resumen": "El portal de pagos dejó de responder debido a que el application pool PortalPagosPool fue deshabilitado automáticamente tras un fallo por falta de memoria.",
+  "tipo": "triage-ia",
+  "valido": true
+}

@@ -1,0 +1,30 @@
+{
+  "antes": {
+    "mb_por_1000_solicitudes": 104.7,
+    "mb_por_hora_base": -77.724,
+    "r2": 0.11,
+    "consumo_mb_dia_promedio": 554.087
+  },
+  "despues": {
+    "mb_por_1000_solicitudes": 300.978,
+    "mb_por_hora_base": -0.154,
+    "r2": 0.999,
+    "consumo_mb_dia_promedio": 5820.718
+  },
+  "salto_dumps_18sep_mb": 8744.0,
+  "escenarios_lleno": {
+    "bajo": "2026-09-22 15:00:00",
+    "medio": "2026-09-22 14:00:00",
+    "alto": "2026-09-22 12:00:00"
+  },
+  "disco_total_mb": 122265.519,
+  "libre_al_cierre_kit_mb": 11172.0,
+  "libre_al_cierre_kit_pct": 9.137,
+  "agota_10pct": "ya por debajo al cierre del kit",
+  "agota_5pct": "2026-09-21 15:00:00",
+  "agota_0": "2026-09-22 14:00:00",
+  "consumo_dia_habil_mb": 6992.249,
+  "consumo_dia_pico_mb": 10363.205,
+  "evento_srv_2013": "2026-09-18 16:37:17",
+  "metodo": "Regresión lineal consumo_horario_MB ~ solicitudes_hora (después del despliegue, sin el salto por dumps), proyectada con el perfil horario promedio de días hábiles (14-17 sep) y de fin de semana (19-20 sep)."
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="18" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2026-10-04" time="22:23:58">
+  <environment user="usuario" machine-name="equipo" os-version="22.6.0" clr-version="8.0.10" cwd="<repo>/reto3-azure" platform="Darwin" nunit-version="2.5.8.0" user-domain="" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Success" success="True" time="2.361" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="<repo>/reto3-azure/tests/Runbook.Tests.ps1" executed="True" result="Success" success="True" time="2.361" asserts="0" description="<repo>/reto3-azure/tests/Runbook.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Lectura de la alerta (esquema común)" executed="True" result="Success" success="True" time="0.5752" asserts="0" description="Lectura de la alerta (esquema común)">
+            <results>
+              <test-case description="extrae regla, condición, disparo y VM" name="Lectura de la alerta (esquema común).extrae regla, condición, disparo y VM" time="0.3194" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="rechaza una invocación sin alerta y un esquema desconocido" name="Lectura de la alerta (esquema común).rechaza una invocación sin alerta y un esquema desconocido" time="0.1454" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="lee el ejemplo del kit (alertas/alerta_ejemplo.json)" name="Lectura de la alerta (esquema común).lee el ejemplo del kit (alertas/alerta_ejemplo.json)" time="0.0381" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Salvaguardas (cuándo NO actuar)" executed="True" result="Success" success="True" time="0.9242" asserts="0" description="Salvaguardas (cuándo NO actuar)">
+            <results>
+              <test-case description="actúa cuando todo está en orden" name="Salvaguardas (cuándo NO actuar).actúa cuando todo está en orden" time="0.0916" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="alerta resuelta =&gt; omitir" name="Salvaguardas (cuándo NO actuar).alerta resuelta =&gt; omitir" time="0.0177" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="interruptor apagado =&gt; escalar" name="Salvaguardas (cuándo NO actuar).interruptor apagado =&gt; escalar" time="0.0131" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="VM no autorizada =&gt; escalar" name="Salvaguardas (cuándo NO actuar).VM no autorizada =&gt; escalar" time="0.0202" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="ventana de mantenimiento 02:00–02:30 Bogotá =&gt; no reinicia, verifica (escala si sigue caído)" name="Salvaguardas (cuándo NO actuar).ventana de mantenimiento 02:00–02:30 Bogotá =&gt; no reinicia, verifica (escala si sigue caído)" time="0.0305" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="ventana que cruza medianoche" name="Salvaguardas (cuándo NO actuar).ventana que cruza medianoche" time="0.0493" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="3 intentos en 60 min =&gt; no reinicia: verifica y escala si sigue caído (límite)" name="Salvaguardas (cuándo NO actuar).3 intentos en 60 min =&gt; no reinicia: verifica y escala si sigue caído (límite)" time="0.0318" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="reincidencia: menos de 15 min tras la última remediación =&gt; no reinicia (no entrar en bucle), verifica" name="Salvaguardas (cuándo NO actuar).reincidencia: menos de 15 min tras la última remediación =&gt; no reinicia (no entrar en bucle), verifica" time="0.0568" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="intentos viejos (&gt; 60 min) no cuentan" name="Salvaguardas (cuándo NO actuar).intentos viejos (&gt; 60 min) no cuentan" time="0.0256" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Script en la VM (decisión final con datos reales del servidor)" executed="True" result="Success" success="True" time="1.5948" asserts="0" description="Script en la VM (decisión final con datos reales del servidor)">
+            <results>
+              <test-case description="pool detenido =&gt; lo inicia, verifica /health y registra 3000 + 3001" name="Script en la VM (decisión final con datos reales del servidor).pool detenido =&gt; lo inicia, verifica /health y registra 3000 + 3001" time="0.2311" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="pool Started y /health 200 =&gt; no hace nada (falso positivo)" name="Script en la VM (decisión final con datos reales del servidor).pool Started y /health 200 =&gt; no hace nada (falso positivo)" time="0.0605" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="pool Started pero /health 503 (dependencia caída) =&gt; NO reinicia y escala" name="Script en la VM (decisión final con datos reales del servidor).pool Started pero /health 503 (dependencia caída) =&gt; NO reinicia y escala" time="0.0344" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="verificar tras reincidencia con el portal ya sano =&gt; alerta residual: no escala ni reinicia (caso real del 04-oct)" name="Script en la VM (decisión final con datos reales del servidor).verificar tras reincidencia con el portal ya sano =&gt; alerta residual: no escala ni reinicia (caso real del 04-oct)" time="0.1095" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="verificar tras reincidencia con el pool caído =&gt; escala sin reiniciar" name="Script en la VM (decisión final con datos reales del servidor).verificar tras reincidencia con el pool caído =&gt; escala sin reiniciar" time="0.0675" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="inicia el pool pero nunca responde 200 =&gt; Fallido (3002)" name="Script en la VM (decisión final con datos reales del servidor).inicia el pool pero nunca responde 200 =&gt; Fallido (3002)" time="0.1286" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

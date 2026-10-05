@@ -1,0 +1,375 @@
+{
+  "version": "Notebook/1.0",
+  "items": [
+    {
+      "type": 9,
+      "name": "parametros",
+      "content": {
+        "version": "KqlParameterItem/1.0",
+        "parameters": [
+          {
+            "id": "p-time",
+            "version": "KqlParameterItem/1.0",
+            "name": "TimeRange",
+            "label": "Período",
+            "type": 4,
+            "isRequired": true,
+            "value": {
+              "durationMs": 86400000
+            },
+            "typeSettings": {
+              "selectableValues": [
+                {
+                  "durationMs": 3600000
+                },
+                {
+                  "durationMs": 14400000
+                },
+                {
+                  "durationMs": 86400000
+                },
+                {
+                  "durationMs": 259200000
+                },
+                {
+                  "durationMs": 604800000
+                }
+              ]
+            }
+          },
+          {
+            "id": "p-vista",
+            "version": "KqlParameterItem/1.0",
+            "name": "Vista",
+            "type": 1,
+            "isHiddenWhenLocked": true,
+            "value": "direccion",
+            "isRequired": false,
+            "label": "Vista",
+            "typeSettings": {}
+          }
+        ],
+        "style": "pills",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces"
+      }
+    },
+    {
+      "type": 11,
+      "name": "pestanas",
+      "content": {
+        "version": "LinkItem/1.0",
+        "style": "tabs",
+        "links": [
+          {
+            "id": "l1",
+            "cellValue": "Vista",
+            "linkTarget": "parameter",
+            "linkLabel": "Dirección",
+            "subTarget": "direccion",
+            "style": "link"
+          },
+          {
+            "id": "l2",
+            "cellValue": "Vista",
+            "linkTarget": "parameter",
+            "linkLabel": "NOC",
+            "subTarget": "noc",
+            "style": "link"
+          }
+        ]
+      }
+    },
+    {
+      "type": 1,
+      "content": {
+        "json": "## ¿El portal está sirviendo a los clientes?\nLa **disponibilidad real** se mide con una sonda que se comporta como un cliente cada 20 segundos. La línea gris muestra lo que reportaba el NOC con el método anterior: cuando el pool se cae, el log de IIS no registra nada y ese método sigue marcando 100 %."
+      },
+      "name": "t-dir",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "direccion"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "union (Event\n| where Source == \"AndinaSonda\"\n| summarize fallas = countif(EventID == 2001) by bin(TimeGenerated, 1m)\n| summarize Valor = round(100.0 * countif(fallas == 0) / count(), 2)\n| extend Indicador = \"Disponibilidad real\", Unidad = \"% · según la sonda\"), (W3CIISLog\n| where csUriStem !in~ (\"/health.aspx\", \"/fallar.aspx\")\n| summarize Valor = round(100.0 * countif(toint(scStatus) < 500) / count(), 2)\n| extend Indicador = \"Según el log de IIS\", Unidad = \"% OK · lo que veía el NOC\"), (Event\n| where Source == \"AndinaSonda\"\n| summarize fallas = countif(EventID == 2001) by bin(TimeGenerated, 1m)\n| summarize Valor = todouble(countif(fallas > 0))\n| extend Indicador = \"Minutos con falla\", Unidad = \"min en el período\"), (Event\n| where Source == \"AndinaRemediacion\" and EventID in (3001, 3002, 3003)\n| summarize Valor = todouble(countif(EventID == 3001)), escalados = countif(EventID != 3001)\n| extend Indicador = \"Recuperaciones\", Unidad = strcat(\"automáticas · \", escalados, \" escaladas\"))\n| project Indicador, Valor, Unidad",
+        "size": 4,
+        "title": "Indicadores del período",
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "visualization": "tiles",
+        "tileSettings": {
+          "titleContent": {
+            "columnMatch": "Indicador",
+            "formatter": 1
+          },
+          "leftContent": {
+            "columnMatch": "Valor",
+            "formatter": 12,
+            "formatOptions": {
+              "palette": "auto"
+            },
+            "numberFormat": {
+              "unit": 0,
+              "options": {
+                "maximumFractionDigits": 2
+              }
+            }
+          },
+          "secondaryContent": {
+            "columnMatch": "Unidad",
+            "formatter": 1
+          },
+          "showBorder": true
+        }
+      },
+      "name": "kpis",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "direccion"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "let sonda = Event\n| where Source == \"AndinaSonda\"\n| summarize v = round(100.0 * countif(EventID == 2000) / count(), 2) by TimeGenerated = bin(TimeGenerated, 15m)\n| extend Serie = \"Real: sonda sintética\";\nlet noc = W3CIISLog\n| where csUriStem =~ \"/health.aspx\"\n| summarize v = round(100.0 * countif(toint(scStatus) == 200) / count(), 2) by TimeGenerated = bin(TimeGenerated, 15m)\n| extend Serie = \"Lo que veía el NOC: /health en el log IIS\";\nunion sonda, noc\n| project TimeGenerated, Serie, v",
+        "size": 0,
+        "title": "Disponibilidad por hora: real vs. lo que veía el NOC",
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "visualization": "timechart",
+        "chartSettings": {
+          "ySettings": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        "aggregation": 3
+      },
+      "name": "disp-hora",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "direccion"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "let fallos = Event | where Source == \"AndinaSonda\" and EventID == 2001 | project t = TimeGenerated\n| order by t asc | extend nuevo = iff(isnull(prev(t)) or t - prev(t) > 5m, 1, 0) | extend incidente = row_cumsum(nuevo);\nlet rangos = fallos | summarize inicio = min(t), ultimo_fallo = max(t) by incidente;\nlet rem = Event | where Source == \"AndinaRemediacion\" and EventID in (3000, 3001, 3002, 3003)\n| extend d = parse_json(RenderedDescription) | project tr = TimeGenerated, EventID, disparo = todatetime(d.disparo), resultado = tostring(d.resultado), k = 1;\nrangos | extend k = 1\n| join kind=leftouter rem on k\n| where isnull(tr) or (tr between (inicio .. ultimo_fallo + 10m))\n| summarize detectado = min(disparo), resultado = take_any(resultado) by incidente, inicio, ultimo_fallo\n| extend Duracion_min = round((ultimo_fallo - inicio) / 1m + 0.33, 1), MTTD_min = round((detectado - inicio) / 1m, 1),\n         Como_se_resolvio = case(resultado == \"Recuperado\", \"Automático\", isempty(resultado), \"Sin remediación\", \"Escalado a una persona\")\n| project Inicio = inicio, Duracion_min, MTTD_min, Como_se_resolvio\n| order by Inicio desc",
+        "size": 1,
+        "title": "Incidentes: cuánto duraron, cuánto tardamos en detectarlos y cómo se resolvieron",
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "visualization": "table"
+      },
+      "name": "incidentes",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "direccion"
+      }
+    },
+    {
+      "type": 1,
+      "content": {
+        "json": "### Panel operativo\nSeñales en el orden en que aparecieron el 18-sep: **memoria → latencia → errores → pool caído**. Las alertas usan los mismos datos."
+      },
+      "name": "t-noc",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "noc"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "Event\n| where Source == \"AndinaSonda\"\n| summarize OK = countif(EventID == 2000), Fallas = countif(EventID == 2001) by bin(TimeGenerated, 1m)",
+        "size": 0,
+        "title": "Sonda sintética (por minuto)",
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "visualization": "barchart"
+      },
+      "name": "sonda",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "noc"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "W3CIISLog\n| where csUriStem !in~ (\"/health.aspx\", \"/fallar.aspx\")\n| summarize pct_5xx = round(100.0 * countif(toint(scStatus) >= 500) / count(), 2) by bin(TimeGenerated, 5m)",
+        "size": 0,
+        "title": "% de errores 5xx de usuarios (5 min) · alerta > 5 %",
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "visualization": "timechart",
+        "aggregation": 2
+      },
+      "name": "5xx",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "noc"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "W3CIISLog\n| where csUriStem in~ (\"/\", \"/default.aspx\", \"/api/saldos.aspx\", \"/api/pagos/iniciar.aspx\", \"/api/pagos/confirmar.aspx\")\n| summarize p95_ms = percentile(TimeTaken, 95), p50_ms = percentile(TimeTaken, 50) by bin(TimeGenerated, 5m)",
+        "size": 0,
+        "title": "Latencia transaccional p50 / p95 (ms)",
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "visualization": "timechart",
+        "aggregation": 3
+      },
+      "name": "p95",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "noc"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "Perf\n| where ObjectName == \"Process\" and CounterName == \"Private Bytes\" and InstanceName startswith \"w3wp\"\n| summarize w3wp_privado_MB = max(CounterValue) / 1048576 by bin(TimeGenerated, 5m)",
+        "size": 0,
+        "title": "Memoria privada de w3wp (MB) · alerta > 800 MB sostenido · recicla a ~976 MB",
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "visualization": "timechart",
+        "aggregation": 2
+      },
+      "name": "mem",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "noc"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "Perf\n| where ObjectName == \"LogicalDisk\" and CounterName == \"% Free Space\" and InstanceName == \"C:\"\n| summarize disco_C_libre_pct = avg(CounterValue) by bin(TimeGenerated, 15m)",
+        "size": 0,
+        "title": "Espacio libre en C: (%) · alerta < 15 %",
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "visualization": "timechart",
+        "aggregation": 5
+      },
+      "name": "disco",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "noc"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "Event\n| where Source == \"Microsoft-Windows-WAS\" or Source in (\".NET Runtime\", \"Application Error\") or Source startswith \"ASP.NET\"\n| project TimeGenerated, Source, EventID, EventLevelName, Descripcion = substring(RenderedDescription, 0, 200)\n| order by TimeGenerated desc\n| take 50",
+        "size": 0,
+        "title": "Eventos del pool y del proceso (WAS, .NET, ASP.NET)",
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "visualization": "table"
+      },
+      "name": "eventos",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "noc"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "union isfuzzy=true\n(Event\n | where Source == \"AndinaRemediacion\"\n | extend d = parse_json(RenderedDescription)\n | project TimeGenerated, Origen = \"VM\", EventID, Resultado = tostring(d.resultado), Detalle = coalesce(tostring(d.motivo), strcat(\"pool \", tostring(d.estadoAntes), \" -> \", tostring(d.estadoDespues)))),\n(AzureDiagnostics\n | where ResourceProvider == \"MICROSOFT.AUTOMATION\" and RunbookName_s == \"Restaurar-PoolIIS\" and Category == \"JobStreams\" and StreamType_s == \"Output\"\n | extend d = parse_json(ResultDescription)\n | project TimeGenerated, Origen = \"Runbook\", EventID = int(null), Resultado = tostring(d.decision), Detalle = tostring(d.detalle))\n| order by TimeGenerated desc\n| take 50",
+        "size": 0,
+        "title": "Auto-remediación: decisiones y acciones",
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "visualization": "table"
+      },
+      "name": "remediacion",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "noc"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "union isfuzzy=true\n(AzureDiagnostics\n | where ResourceProvider == \"MICROSOFT.AUTOMATION\" and RunbookName_s == \"Triage-Alerta\" and Category == \"JobStreams\" and StreamType_s == \"Output\"\n | extend d = parse_json(ResultDescription)\n | where tostring(d.tipo) == \"triage-ia\"\n | project TimeGenerated, Alerta = tostring(d.alerta.regla), Resumen = tostring(d.resumen), Impacto = tostring(d.impacto.nivel),\n           Accion_sugerida = strcat(tostring(d.accion.runbook), \" · \", tostring(d.accion.nombre)), Confianza = tostring(d.confianza.nivel),\n           Origen = tostring(d.origen), Valido = tobool(d.valido))\n| order by TimeGenerated desc\n| take 20",
+        "size": 0,
+        "title": "Triage con IA (Reto 4): sugerencias para la guardia · ninguna se ejecuta sola",
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "visualization": "table"
+      },
+      "name": "triage-ia",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "noc"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "Event\n| where Source == \"AndinaMantenimiento\"\n| project TimeGenerated, Codigo = EventID - 1000, EventLevelName, Detalle = RenderedDescription\n| order by TimeGenerated desc\n| take 14",
+        "size": 0,
+        "title": "Mantenimiento diario (Reto 2): código de salida por ejecución",
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "visualization": "table"
+      },
+      "name": "mant",
+      "conditionalVisibility": {
+        "parameterName": "Vista",
+        "comparison": "isEqualTo",
+        "value": "noc"
+      }
+    }
+  ],
+  "isLocked": false,
+  "fallbackResourceIds": [
+    "__WORKSPACE_ID__"
+  ]
+}

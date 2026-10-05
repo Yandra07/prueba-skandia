@@ -1,0 +1,5 @@
+{"ts":"2026-10-02T03:07:38.1895410Z","runbook":"Restaurar-PoolIIS","decision":"Recibida","detalle":"Alerta PortalPagos-Sitio-NoDisponible (Fired)","datos":{"alerta":{"AlertId":"/subscriptions/<sub>/providers/Microsoft.AlertsManagement/alerts/b15a912e-b4c9-e940-d578-4eade9290004","Regla":"PortalPagos-Sitio-NoDisponible","Severidad":"Sev1","Condicion":"Fired","Disparo":"2026-10-02T03:07:04.5188885Z","VmId":"/subscriptions/<sub>/resourcegroups/rg-portalpagos-lab/providers/microsoft.compute/virtualmachines/web-pagos-01"}}}
+
+{"ts":"2026-10-02T03:08:53.0177613Z","runbook":"Restaurar-PoolIIS","decision":"Escalar","detalle":"Pool Started pero /health=503: la causa no es el pool, reiniciarlo no ayuda","datos":{"vm":{"alertId":"b15a912e-b4c9-e940-d578-4eade9290004","disparo":"2026-10-02T03:07:04.5188885Z","estadoAntes":"Started","healthAntes":503,"crashes15m":0,"resultado":"Escalar","motivo":"Pool Started pero /health=503: la causa no es el pool, reiniciarlo no ayuda"}}}
+
+

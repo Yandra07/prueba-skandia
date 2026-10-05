@@ -1,0 +1,8 @@
+# Versiones con las que pasaron las 33 pruebas (05-oct-2026). Ejecutar antes: pip install --upgrade pip
+jsonschema==4.25.1      # opcional: sin él se usa el validador mínimo (así corre en Azure Automation)
+pandas==2.3.3           # solo para construir el contexto desde el kit (reutiliza los parsers del Reto 1)
+pytest==8.4.2
+# Opcional, solo para llamar al modelo real desde tu equipo sin `az login`:
+#   pip install --only-binary=:all: azure-identity==1.26.0
+# (sin --only-binary, en macOS con Python 3.9 pip intenta compilar `cryptography` y falla).
+# No hace falta para las pruebas: sin azure-identity se usa `az account get-access-token` o la identidad administrada.

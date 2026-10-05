@@ -1,0 +1,34 @@
+{
+  "automationCuenta": {
+    "type": "String",
+    "value": "aa-portalpagos"
+  },
+  "grupoRecursos": {
+    "type": "String",
+    "value": "rg-portalpagos-lab"
+  },
+  "ipPublica": {
+    "type": "String",
+    "value": "172.203.28.107"
+  },
+  "vmId": {
+    "type": "String",
+    "value": "/subscriptions/<sub>/resourceGroups/rg-portalpagos-lab/providers/Microsoft.Compute/virtualMachines/web-pagos-01"
+  },
+  "vmNombre": {
+    "type": "String",
+    "value": "web-pagos-01"
+  },
+  "workbookId": {
+    "type": "String",
+    "value": "/subscriptions/<sub>/resourceGroups/rg-portalpagos-lab/providers/Microsoft.Insights/workbooks/62027897-181f-5ded-b585-083ffb35c390"
+  },
+  "workspaceCustomerId": {
+    "type": "String",
+    "value": "ee0759d9-a2c9-49ab-98f1-8fae42169432"
+  },
+  "workspaceId": {
+    "type": "String",
+    "value": "/subscriptions/<sub>/resourceGroups/rg-portalpagos-lab/providers/Microsoft.OperationalInsights/workspaces/law-portalpagos"
+  }
+}

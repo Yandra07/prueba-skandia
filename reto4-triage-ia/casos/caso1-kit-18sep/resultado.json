@@ -1,0 +1,165 @@
+{
+  "version": "1.0",
+  "generado_utc": "2026-10-02T16:55:48Z",
+  "alerta": {
+    "id": "7f1c2b3a-0000-0000-0000-000000000001",
+    "regla": "PortalPagos-5xx-alto",
+    "severidad": "Sev1",
+    "disparo_utc": "2026-09-18T19:00:00.000Z",
+    "objetivo": "web-pagos-01"
+  },
+  "origen": "modelo",
+  "modelo": "gpt-4.1-mini-2025-04-14",
+  "triage": {
+    "resumen": "Alerta Sev1 por alta tasa de errores 5xx en web-pagos-01 desde las 13:20, con latencias muy elevadas y OutOfMemoryException reportada.",
+    "que_esta_pasando": "A las 13:00 y 13:10 no hubo errores 5xx (E1: \"0 con 5xx (0.0 %)\", E2: \"0 con 5xx (0.0 %)\"). A partir de 13:20 la tasa de errores 5xx sube a 11.4% y sigue aumentando hasta 17.5% a las 13:40, con latencias p95 muy altas, superiores a 23 segundos (E3, E4, E5). La alerta se dispara a las 14:00 con 23.4% de errores 5xx (alerta). Se reportan 75 errores 5xx en /api/pagos/confirmar, 66 en /api/pagos/iniciar, 31 en /api/movimientos y 31 en /api/saldos (E8, E9, E10, E11). Se detecta un OutOfMemoryException en /api/pagos/confirmar desde 13:24 hasta 14:01 (E18). La memoria privada del proceso w3wp crece sostenidamente desde 10:00 hasta 14:00, llegando a 1434 MB (E21 a E29). La sonda /health responde 200 en todas las 124 solicitudes (E15).",
+    "impacto": {
+      "nivel": "alto",
+      "descripcion": "Clientes afectados por errores 5xx en múltiples APIs críticas de pagos y movimientos, con tasa de errores superior al 15% y latencias muy elevadas."
+    },
+    "hipotesis": [
+      {
+        "descripcion": "Fuga de memoria en la aplicación web que causa OutOfMemoryException y errores 5xx en APIs de pagos y movimientos.",
+        "probabilidad": "alta",
+        "evidencia": [
+          {
+            "id": "E18",
+            "cita": "Exception type: OutOfMemoryException Exception message: Exception of type 'System.OutOfMemoryException' was thrown. Request path: /api/pagos/confirmar"
+          },
+          {
+            "id": "E27",
+            "cita": "memoria privada de w3wp 1317 MB"
+          },
+          {
+            "id": "E29",
+            "cita": "memoria privada de w3wp 1434 MB"
+          },
+          {
+            "id": "E3",
+            "cita": "40 con 5xx (11.4 %) latencia p95 23441 ms"
+          },
+          {
+            "id": "E8",
+            "cita": "75 errores 5xx en /api/pagos/confirmar"
+          }
+        ]
+      },
+      {
+        "descripcion": "El despliegue reciente de PortalPagos v2.3.1 introdujo un cambio que genera consumo excesivo de memoria y errores 5xx.",
+        "probabilidad": "media",
+        "evidencia": [
+          {
+            "id": "E16",
+            "cita": "Despliegue completado: PortalPagos v2.3.1 (antes v2.3.0). Cambios: nuevo flujo de confirmacion de pagos, cache de sesiones de pago, appsettings Serilog:MinimumLevel=Debug."
+          },
+          {
+            "id": "E18",
+            "cita": "Exception type: OutOfMemoryException"
+          },
+          {
+            "id": "E3",
+            "cita": "40 con 5xx (11.4 %)"
+          }
+        ]
+      },
+      {
+        "descripcion": "No hay problemas de espacio en disco ni de disponibilidad del servidor, ni fallas en la sonda de salud, por lo que no es causa probable.",
+        "probabilidad": "baja",
+        "evidencia": [
+          {
+            "id": "E15",
+            "cita": "124 respuestas, 124 con 200"
+          },
+          {
+            "id": "E29",
+            "cita": "22.6 % libre en C:"
+          }
+        ]
+      }
+    ],
+    "accion_sugerida": {
+      "runbook": "RB-03",
+      "justificacion": "La evidencia muestra un OutOfMemoryException y un crecimiento sostenido de la memoria del pool w3wp, típico de una fuga de memoria tras un despliegue reciente. RB-03 es el runbook adecuado para escalar a desarrollo y evaluar rollback.",
+      "evidencia": [
+        "E18",
+        "E27",
+        "E29",
+        "E16"
+      ]
+    },
+    "confianza": {
+      "nivel": "baja",
+      "razon": "Validación con avisos: hipótesis 2: 'Despliegue completado: PortalPagos v2.3.1 (antes v2.3.0). Cambios: nuevo flujo d' no aparece en E16"
+    },
+    "datos_faltantes": [
+      "Estado actual del application pool PortalPagosPool",
+      "Logs detallados de errores 5xx para identificar causa raíz",
+      "Información de uso de CPU y memoria en tiempo real durante el incidente"
+    ]
+  },
+  "accion": {
+    "runbook": "RB-03",
+    "justificacion": "La evidencia muestra un OutOfMemoryException y un crecimiento sostenido de la memoria del pool w3wp, típico de una fuga de memoria tras un despliegue reciente. RB-03 es el runbook adecuado para escalar a desarrollo y evaluar rollback.",
+    "evidencia": [
+      "E18",
+      "E27",
+      "E29",
+      "E16"
+    ],
+    "nombre": "Escalar a desarrollo por fuga de memoria / evaluar rollback de la última versión",
+    "requiere_aprobacion_humana": true,
+    "ejecutada": false
+  },
+  "validacion": {
+    "valido": true,
+    "problemas": [
+      {
+        "tipo": "cita_no_literal",
+        "detalle": "hipótesis 2: 'Despliegue completado: PortalPagos v2.3.1 (antes v2.3.0). Cambios: nuevo flujo d' no aparece en E16"
+      }
+    ],
+    "intentos": [
+      {
+        "vuelta": 1,
+        "resultado": "con_avisos",
+        "problemas": [
+          {
+            "tipo": "cita_no_literal",
+            "detalle": "hipótesis 2: 'Despliegue completado: PortalPagos v2.3.1 (antes v2.3.0). Cambios: nuevo flujo d' no aparece en E16"
+          }
+        ],
+        "meta": {
+          "modelo": "gpt-4.1-mini-2025-04-14",
+          "tokens": {
+            "completion_tokens": 945,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "latency_checkpoint": {
+              "engine_tbt_ms": 12,
+              "engine_ttft_ms": 103,
+              "engine_ttlt_ms": 11249,
+              "pre_inference_ms": 225,
+              "service_tbt_ms": 12,
+              "service_ttft_ms": 467,
+              "service_ttlt_ms": 11606,
+              "user_visible_ttft_ms": 242
+            },
+            "prompt_tokens": 4380,
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cached_tokens": 0
+            },
+            "total_tokens": 5325
+          },
+          "latencia_ms": 13021,
+          "intentos": 1
+        }
+      }
+    ]
+  },
+  "duracion_ms": 13022
+}

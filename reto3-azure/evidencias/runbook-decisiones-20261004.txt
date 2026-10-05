@@ -1,0 +1,38 @@
+# Decisiones del runbook Restaurar-PoolIIS el 04-oct-2026 (horas en UTC; Colombia = UTC-5)
+# Fuente: Log Analytics (law-portalpagos), tabla AzureDiagnostics, categoría JobStreams, consultada desde
+# Azure CLI antes de eliminar el laboratorio. Las tablas (1) y (2) se copiaron tal cual; en (3) las líneas JSON se recortaron
+# con "..." (la salida completa está en runbook-salida-alerta-residual-corregida.txt).
+#
+# Consulta:
+#   AzureDiagnostics | where Category == 'JobStreams' and RunbookName_s == 'Restaurar-PoolIIS'
+#   | extend d = parse_json(ResultDescription) | project TimeGenerated, decision = tostring(d.decision), detalle = tostring(d.detalle)
+#   | order by TimeGenerated asc
+
+## 1) Consultada a las 01:46Z (antes de corregir el runbook)
+TableName      TimeGenerated                 Decision    Detalle
+-------------  ----------------------------  ----------  --------------------------------------------------------------------------
+PrimaryResult  2026-10-05T01:37:43.7697989Z  Recibida    Alerta PortalPagos-Sitio-NoDisponible (Fired)
+PrimaryResult  2026-10-05T01:38:31.2223545Z
+PrimaryResult  2026-10-05T01:38:31.3056316Z  Recuperado
+PrimaryResult  2026-10-05T01:42:38.8205671Z  Recibida    Alerta PortalPagos-Sitio-NoDisponible (Fired)
+PrimaryResult  2026-10-05T01:42:41.4605179Z  Escalar     Reincidencia: el pool volvió a caer 5 min después de la última remediación
+
+# Lectura: crash #5 recuperado a las 01:38:31Z (20:38 Colombia). A las 01:42:41Z la misma alerta, que mira 5 min
+# hacia atrás y no se resuelve sola, se volvió a disparar con las fallas viejas y el runbook ESCALÓ con el portal sano
+# (la sonda daba 200 desde las 01:38:20Z). Es la escalada falsa que se corrigió.
+
+## 2) Consultada a las 01:52Z (crash #6, 13 min después del #5; runbook todavía sin corregir)
+TableName      TimeGenerated                 Decision    Detalle
+-------------  ----------------------------  ----------  ---------------------------------------------------------------------------
+PrimaryResult  2026-10-05T01:50:53.1549123Z  Recibida    Alerta PortalPagos-Sitio-NoDisponible (Fired)
+PrimaryResult  2026-10-05T01:50:56.2477099Z  Escalar     Reincidencia: el pool volvió a caer 13 min después de la última remediación
+
+# Lectura: aquí la escalada SÍ es correcta (el pool estaba caído desde las 01:48Z); el anti-bucle no reinicia.
+
+## 3) Salida del job tras publicar el runbook corregido (01:52:49Z). Job de las 02:00:09Z, estado Completed
+{"ts":"2026-10-05T02:01:38.0104150Z","runbook":"Restaurar-PoolIIS","decision":"Recibida","detalle":"Alerta PortalPagos-Sitio-NoDisponible (Fired)", ...}
+{"ts":"2026-10-05T02:01:50.0897562Z","runbook":"Restaurar-PoolIIS","decision":"Verificar","detalle":"Reincidencia: alerta 6 min después de la última remediación","datos":{}}
+{"ts":"2026-10-05T02:02:25.7538941Z","runbook":"Restaurar-PoolIIS","decision":"SinAccion","detalle":"Pool Started y /health 200: falso positivo o ya recuperado", ...}
+
+# Lectura: misma situación que en (1), alerta residual tras una recuperación (la del job de 01:55Z), y esta vez el
+# runbook verificó y no escaló. Salida completa en runbook-salida-alerta-residual-corregida.txt.

@@ -1,0 +1,2 @@
+PSScriptAnalyzer 1.25.0 · 2026-10-01T20:16:29
+vm + runbook · compatibilidad de sintaxis 5.1/7.0: 0 hallazgos · reglas por defecto (Error/Warning): 0 hallazgos
